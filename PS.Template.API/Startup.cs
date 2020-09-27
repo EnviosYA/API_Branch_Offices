@@ -21,6 +21,15 @@ using Microsoft.AspNetCore.Http;
 using PS.Template.API.Entities;
 using PS.Template.Domain.Entities;
 using PS.Template.Domain.Interfaces.Service;
+using PS.Template.AccessData.Queries;
+using PS.Template.Domain.Interfaces.Queries;
+using SqlKata.Compilers;
+using System.Data;
+using System.Data.SqlClient;
+using PS.Template.Domain.Interfaces.Queries.Base;
+using PS.Template.AccessData.Queries.Base;
+using PS.Template.Domain.Service.Base;
+using PS.Template.Application.Services.Base;
 
 namespace PS.Template.API
 {
@@ -41,12 +50,18 @@ namespace PS.Template.API
 
             var connectionString = Configuration.GetSection("ConnectionString").Value;
 
-
+            //EF CORE
             services.AddDbContext<SucursalDBContext>(opcion => opcion.UseSqlServer(connectionString));
-            
 
 
+            //SQLKATA
+            services.AddTransient<Compiler, SqlServerCompiler>();
+            services.AddTransient<IDbConnection>(s =>
+            {
+                return new SqlConnection(connectionString);
+            });
 
+            //SWAGGER
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -62,10 +77,13 @@ namespace PS.Template.API
             services.AddTransient<ILocalidadRepository, LocalidadRepository>();
             services.AddTransient<IProvinciaRepository, ProvinciaRepository>();
 
+            
             services.AddTransient<ISucursalService, SucursalService>();
             services.AddTransient<IDireccionService, DireccionService>();
             services.AddTransient<ILocalidadService, LocalidadService>();
             services.AddTransient<IProvinciaService, ProvinciaService>();
+
+            services.AddTransient<IDireccionQuery, DireccionQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

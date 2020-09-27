@@ -5,14 +5,38 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using PS.Template.AccessData.Repositories;
+using TP2.REST.Domain.DTO;
+using PS.Template.Domain.DTO;
+using PS.Template.Domain.Interfaces.Queries;
+using SqlKata;
 
 namespace PS.Template.Application.Services
 {
-    public class DireccionService : BaseService<Direccion>, IDireccionService
+    public class DireccionService : BaseService<Direccion>, IDireccionQuery, IDireccionService
     {
-        public DireccionService(IDireccionRepository repository) : base(repository)
+        private readonly IDireccionQuery _query;
+        public DireccionService(IDireccionRepository repository, IDireccionQuery query) : base(repository)
         {
+            _query = query;
+        }
 
+        public GenericCreatedResponseDTO CreateDireccion(DireccionDTO direccionDTO)
+        {
+            var entity = new Direccion
+            {
+                Latitud = direccionDTO.Latitud,
+                Longitud = direccionDTO.Longitud,
+                Calle = direccionDTO.Calle,
+                Altura = direccionDTO.Altura,
+                IdLocalidad = direccionDTO.IdLocalidad
+            };
+            Repository.Add(entity);
+            return new GenericCreatedResponseDTO { Entity = "Direccion", Id = entity.IdDireccion.ToString() };
+        }
+
+        public ResponseGetDireccion GetByID(int id)
+        {
+            return _query.GetByID(id);
         }
     }
 }

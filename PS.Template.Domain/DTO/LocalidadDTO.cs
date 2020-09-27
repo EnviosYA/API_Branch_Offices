@@ -10,8 +10,5 @@ namespace PS.Template.Domain.DTO
         public string Nombre { get; set; }
         public int Cp { get; set; }
         public int IdProvincia { get; set; }
-
-        public virtual Provincia IdProvinciaNavigation { get; set; }
-        public virtual ICollection<Direccion> Direccion { get; set; }
     }
 }

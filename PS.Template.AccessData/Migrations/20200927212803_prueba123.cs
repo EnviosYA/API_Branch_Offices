@@ -2,7 +2,7 @@
 
 namespace PS.Template.AccessData.Migrations
 {
-    public partial class CreateDatabaseSucursal : Migration
+    public partial class prueba123 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,8 @@ namespace PS.Template.AccessData.Migrations
                 name: "Direccion",
                 columns: table => new
                 {
-                    idDireccion = table.Column<int>(nullable: false),
+                    idDireccion = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Latitud = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     Longitud = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     Calle = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
@@ -107,6 +108,38 @@ namespace PS.Template.AccessData.Migrations
                 table: "EstadoSucurusal",
                 columns: new[] { "idEstado", "Descripcion" },
                 values: new object[] { 2, "Inhabilitada" });
+
+            migrationBuilder.InsertData(
+                table: "Provincia",
+                columns: new[] { "idProvincia", "Nombre" },
+                values: new object[] { 1, "Buenos Aires" });
+
+            migrationBuilder.InsertData(
+                table: "Localidad",
+                columns: new[] { "idLocalidad", "CP", "idProvincia", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, 1001, 1, "Retiro seccion 1" },
+                    { 18, 1018, 1, "Recoleta seccion 3" },
+                    { 17, 1017, 1, "San Nicolas seccion seccion 8" },
+                    { 16, 1016, 1, "Recoleta seccion 2" },
+                    { 15, 1015, 1, "San Nicolas seccion 7" },
+                    { 14, 1014, 1, "Recoleta seccion 1" },
+                    { 13, 1013, 1, "San Nicolas seccion 6" },
+                    { 12, 1012, 1, "Monserrat seccion 3" },
+                    { 11, 1011, 1, "Retiro seccion 4" },
+                    { 10, 1010, 1, "San Nicolas seccion 5" },
+                    { 9, 1009, 1, "San Nicolas seccion 4" },
+                    { 8, 1001, 1, "Monserrat seccion 2" },
+                    { 7, 1007, 1, "Retiro seccion 3" },
+                    { 6, 1006, 1, "Retiro seccion 2" },
+                    { 5, 1005, 1, "San Nicolas seccion 3" },
+                    { 4, 1004, 1, "San Nicolas seccion 2" },
+                    { 3, 1003, 1, "San Nicolas seccion 1" },
+                    { 2, 1002, 1, "Monserrat seccion 1" },
+                    { 19, 1019, 1, "Recoleta seccion 4" },
+                    { 20, 1020, 1, "Recoleta seccion 5" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Direccion_idLocalidad",
