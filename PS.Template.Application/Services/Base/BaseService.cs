@@ -1,4 +1,5 @@
 ﻿using PS.Template.Domain.Commands;
+using PS.Template.Domain.Interfaces.Queries.Base;
 using PS.Template.Domain.Service.Base;
 using System;
 using System.Collections.Generic;

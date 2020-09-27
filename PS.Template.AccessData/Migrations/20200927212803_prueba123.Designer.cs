@@ -9,8 +9,8 @@ using PS.Template.API.Entities;
 namespace PS.Template.AccessData.Migrations
 {
     [DbContext(typeof(SucursalDBContext))]
-    [Migration("20200927181934_CreateDatabaseSucursal")]
-    partial class CreateDatabaseSucursal
+    [Migration("20200927212803_prueba123")]
+    partial class prueba123
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,8 +23,10 @@ namespace PS.Template.AccessData.Migrations
             modelBuilder.Entity("PS.Template.Domain.Entities.Direccion", b =>
                 {
                     b.Property<int>("IdDireccion")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("idDireccion")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Altura")
                         .HasColumnType("int");
@@ -112,6 +114,148 @@ namespace PS.Template.AccessData.Migrations
                     b.HasIndex("IdProvincia");
 
                     b.ToTable("Localidad");
+
+                    b.HasData(
+                        new
+                        {
+                            IdLocalidad = 1,
+                            Cp = 1001,
+                            IdProvincia = 1,
+                            Nombre = "Retiro seccion 1"
+                        },
+                        new
+                        {
+                            IdLocalidad = 2,
+                            Cp = 1002,
+                            IdProvincia = 1,
+                            Nombre = "Monserrat seccion 1"
+                        },
+                        new
+                        {
+                            IdLocalidad = 3,
+                            Cp = 1003,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 1"
+                        },
+                        new
+                        {
+                            IdLocalidad = 4,
+                            Cp = 1004,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 2"
+                        },
+                        new
+                        {
+                            IdLocalidad = 5,
+                            Cp = 1005,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 3"
+                        },
+                        new
+                        {
+                            IdLocalidad = 6,
+                            Cp = 1006,
+                            IdProvincia = 1,
+                            Nombre = "Retiro seccion 2"
+                        },
+                        new
+                        {
+                            IdLocalidad = 7,
+                            Cp = 1007,
+                            IdProvincia = 1,
+                            Nombre = "Retiro seccion 3"
+                        },
+                        new
+                        {
+                            IdLocalidad = 8,
+                            Cp = 1001,
+                            IdProvincia = 1,
+                            Nombre = "Monserrat seccion 2"
+                        },
+                        new
+                        {
+                            IdLocalidad = 9,
+                            Cp = 1009,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 4"
+                        },
+                        new
+                        {
+                            IdLocalidad = 10,
+                            Cp = 1010,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 5"
+                        },
+                        new
+                        {
+                            IdLocalidad = 11,
+                            Cp = 1011,
+                            IdProvincia = 1,
+                            Nombre = "Retiro seccion 4"
+                        },
+                        new
+                        {
+                            IdLocalidad = 12,
+                            Cp = 1012,
+                            IdProvincia = 1,
+                            Nombre = "Monserrat seccion 3"
+                        },
+                        new
+                        {
+                            IdLocalidad = 13,
+                            Cp = 1013,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 6"
+                        },
+                        new
+                        {
+                            IdLocalidad = 14,
+                            Cp = 1014,
+                            IdProvincia = 1,
+                            Nombre = "Recoleta seccion 1"
+                        },
+                        new
+                        {
+                            IdLocalidad = 15,
+                            Cp = 1015,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion 7"
+                        },
+                        new
+                        {
+                            IdLocalidad = 16,
+                            Cp = 1016,
+                            IdProvincia = 1,
+                            Nombre = "Recoleta seccion 2"
+                        },
+                        new
+                        {
+                            IdLocalidad = 17,
+                            Cp = 1017,
+                            IdProvincia = 1,
+                            Nombre = "San Nicolas seccion seccion 8"
+                        },
+                        new
+                        {
+                            IdLocalidad = 18,
+                            Cp = 1018,
+                            IdProvincia = 1,
+                            Nombre = "Recoleta seccion 3"
+                        },
+                        new
+                        {
+                            IdLocalidad = 19,
+                            Cp = 1019,
+                            IdProvincia = 1,
+                            Nombre = "Recoleta seccion 4"
+                        },
+                        new
+                        {
+                            IdLocalidad = 20,
+                            Cp = 1020,
+                            IdProvincia = 1,
+                            Nombre = "Recoleta seccion 5"
+                        });
                 });
 
             modelBuilder.Entity("PS.Template.Domain.Entities.Provincia", b =>
@@ -129,6 +273,13 @@ namespace PS.Template.AccessData.Migrations
                     b.HasKey("IdProvincia");
 
                     b.ToTable("Provincia");
+
+                    b.HasData(
+                        new
+                        {
+                            IdProvincia = 1,
+                            Nombre = "Buenos Aires"
+                        });
                 });
 
             modelBuilder.Entity("PS.Template.Domain.Entities.Sucursal", b =>

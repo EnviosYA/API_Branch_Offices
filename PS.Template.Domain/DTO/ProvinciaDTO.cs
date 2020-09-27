@@ -8,7 +8,5 @@ namespace PS.Template.Domain.DTO
     public class ProvinciaDTO
     {
         public string Nombre { get; set; }
-
-        public virtual ICollection<Localidad> Localidad { get; set; }
     }
 }

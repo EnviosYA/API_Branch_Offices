@@ -1,0 +1,23 @@
+﻿using PS.Template.Domain.Interfaces.Queries.Base;
+using SqlKata.Compilers;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Text;
+
+namespace PS.Template.AccessData.Queries.Base
+{
+    public class BaseQuery<E> : IBaseQuery<E> 
+    {
+        protected readonly IDbConnection connection;
+        protected readonly Compiler sqlKatacompiler;
+
+        public BaseQuery(IDbConnection connection, Compiler sqlKatacompiler)
+        {
+            this.connection = connection;
+            this.sqlKatacompiler = sqlKatacompiler;
+        }
+
+        
+    }
+}

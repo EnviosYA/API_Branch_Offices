@@ -16,6 +16,6 @@ namespace PS.Template.API.Controllers
         public LocalidadController(ILocalidadService service)
         {
             _service = service;
-        }
+        }        
     }
 }
