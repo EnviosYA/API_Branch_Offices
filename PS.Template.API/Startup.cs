@@ -84,6 +84,7 @@ namespace PS.Template.API
             services.AddTransient<IProvinciaService, ProvinciaService>();
 
             services.AddTransient<IDireccionQuery, DireccionQuery>();
+            services.AddTransient<ILocalidadQuery, LocalidadQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

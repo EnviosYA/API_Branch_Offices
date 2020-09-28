@@ -16,6 +16,19 @@ namespace PS.Template.API.Controllers
         public LocalidadController(ILocalidadService service)
         {
             _service = service;
-        }        
+        }
+
+        [HttpGet]
+        public IActionResult GetLocalidad()
+        {
+            try
+            {
+                return new JsonResult(_service.GetLocalidad()) { StatusCode = 200 };
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
