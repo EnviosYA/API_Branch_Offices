@@ -9,8 +9,8 @@ using PS.Template.API.Entities;
 namespace PS.Template.AccessData.Migrations
 {
     [DbContext(typeof(SucursalDBContext))]
-    [Migration("20200927212803_prueba123")]
-    partial class prueba123
+    [Migration("20200929003354_CreateSucursalDB")]
+    partial class CreateSucursalDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,7 +74,7 @@ namespace PS.Template.AccessData.Migrations
 
                     b.HasKey("idEstado");
 
-                    b.ToTable("EstadoSucurusal");
+                    b.ToTable("EstadoSucursal");
 
                     b.HasData(
                         new

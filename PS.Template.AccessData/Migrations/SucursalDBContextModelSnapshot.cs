@@ -72,7 +72,7 @@ namespace PS.Template.AccessData.Migrations
 
                     b.HasKey("idEstado");
 
-                    b.ToTable("EstadoSucurusal");
+                    b.ToTable("EstadoSucursal");
 
                     b.HasData(
                         new

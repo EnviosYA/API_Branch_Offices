@@ -2,12 +2,12 @@
 
 namespace PS.Template.AccessData.Migrations
 {
-    public partial class prueba123 : Migration
+    public partial class CreateSucursalDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "EstadoSucurusal",
+                name: "EstadoSucursal",
                 columns: table => new
                 {
                     idEstado = table.Column<int>(nullable: false),
@@ -15,7 +15,7 @@ namespace PS.Template.AccessData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstadoSucurusal", x => x.idEstado);
+                    table.PrimaryKey("PK_EstadoSucursal", x => x.idEstado);
                 });
 
             migrationBuilder.CreateTable(
@@ -94,18 +94,18 @@ namespace PS.Template.AccessData.Migrations
                     table.ForeignKey(
                         name: "FK_Sucursal_EstadoSucursal",
                         column: x => x.idEstado,
-                        principalTable: "EstadoSucurusal",
+                        principalTable: "EstadoSucursal",
                         principalColumn: "idEstado",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
-                table: "EstadoSucurusal",
+                table: "EstadoSucursal",
                 columns: new[] { "idEstado", "Descripcion" },
                 values: new object[] { 1, "Habilitada" });
 
             migrationBuilder.InsertData(
-                table: "EstadoSucurusal",
+                table: "EstadoSucursal",
                 columns: new[] { "idEstado", "Descripcion" },
                 values: new object[] { 2, "Inhabilitada" });
 
@@ -171,7 +171,7 @@ namespace PS.Template.AccessData.Migrations
                 name: "Direccion");
 
             migrationBuilder.DropTable(
-                name: "EstadoSucurusal");
+                name: "EstadoSucursal");
 
             migrationBuilder.DropTable(
                 name: "Localidad");

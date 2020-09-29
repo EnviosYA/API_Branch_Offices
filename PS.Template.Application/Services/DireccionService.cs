@@ -38,5 +38,7 @@ namespace PS.Template.Application.Services
         {
             return _query.GetByID(id);
         }
+
+        
     }
 }
