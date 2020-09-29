@@ -286,7 +286,7 @@ namespace PS.Template.API.Entities
                     .HasMaxLength(50)
                     .IsUnicode(false);
                 
-                entity.ToTable("EstadoSucurusal");
+                entity.ToTable("EstadoSucursal");
                 entity.HasData(new EstadoSucursal { idEstado = 1, Descripcion = "Habilitada" });
                 entity.HasData(new EstadoSucursal { idEstado = 2, Descripcion = "Inhabilitada" });
             });            

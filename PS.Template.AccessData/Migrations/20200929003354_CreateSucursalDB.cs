@@ -2,12 +2,12 @@
 
 namespace PS.Template.AccessData.Migrations
 {
-    public partial class init : Migration
+    public partial class CreateSucursalDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "EstadoSucurusal",
+                name: "EstadoSucursal",
                 columns: table => new
                 {
                     idEstado = table.Column<int>(nullable: false),
@@ -15,7 +15,7 @@ namespace PS.Template.AccessData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstadoSucurusal", x => x.idEstado);
+                    table.PrimaryKey("PK_EstadoSucursal", x => x.idEstado);
                 });
 
             migrationBuilder.CreateTable(
@@ -94,18 +94,18 @@ namespace PS.Template.AccessData.Migrations
                     table.ForeignKey(
                         name: "FK_Sucursal_EstadoSucursal",
                         column: x => x.idEstado,
-                        principalTable: "EstadoSucurusal",
+                        principalTable: "EstadoSucursal",
                         principalColumn: "idEstado",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
-                table: "EstadoSucurusal",
+                table: "EstadoSucursal",
                 columns: new[] { "idEstado", "Descripcion" },
                 values: new object[] { 1, "Habilitada" });
 
             migrationBuilder.InsertData(
-                table: "EstadoSucurusal",
+                table: "EstadoSucursal",
                 columns: new[] { "idEstado", "Descripcion" },
                 values: new object[] { 2, "Inhabilitada" });
 
@@ -113,6 +113,33 @@ namespace PS.Template.AccessData.Migrations
                 table: "Provincia",
                 columns: new[] { "idProvincia", "Nombre" },
                 values: new object[] { 1, "Buenos Aires" });
+
+            migrationBuilder.InsertData(
+                table: "Localidad",
+                columns: new[] { "idLocalidad", "CP", "idProvincia", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, 1001, 1, "Retiro seccion 1" },
+                    { 18, 1018, 1, "Recoleta seccion 3" },
+                    { 17, 1017, 1, "San Nicolas seccion seccion 8" },
+                    { 16, 1016, 1, "Recoleta seccion 2" },
+                    { 15, 1015, 1, "San Nicolas seccion 7" },
+                    { 14, 1014, 1, "Recoleta seccion 1" },
+                    { 13, 1013, 1, "San Nicolas seccion 6" },
+                    { 12, 1012, 1, "Monserrat seccion 3" },
+                    { 11, 1011, 1, "Retiro seccion 4" },
+                    { 10, 1010, 1, "San Nicolas seccion 5" },
+                    { 9, 1009, 1, "San Nicolas seccion 4" },
+                    { 8, 1001, 1, "Monserrat seccion 2" },
+                    { 7, 1007, 1, "Retiro seccion 3" },
+                    { 6, 1006, 1, "Retiro seccion 2" },
+                    { 5, 1005, 1, "San Nicolas seccion 3" },
+                    { 4, 1004, 1, "San Nicolas seccion 2" },
+                    { 3, 1003, 1, "San Nicolas seccion 1" },
+                    { 2, 1002, 1, "Monserrat seccion 1" },
+                    { 19, 1019, 1, "Recoleta seccion 4" },
+                    { 20, 1020, 1, "Recoleta seccion 5" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Direccion_idLocalidad",
@@ -144,7 +171,7 @@ namespace PS.Template.AccessData.Migrations
                 name: "Direccion");
 
             migrationBuilder.DropTable(
-                name: "EstadoSucurusal");
+                name: "EstadoSucursal");
 
             migrationBuilder.DropTable(
                 name: "Localidad");
