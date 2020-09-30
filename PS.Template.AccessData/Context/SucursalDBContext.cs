@@ -101,146 +101,210 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 1,
-                    Nombre = "Retiro seccion 1",
+                    Nombre = "Retiro",
                     Cp = 1001,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 2,
-                    Nombre = "Monserrat seccion 1",
+                    Nombre = "Monserrat",
                     Cp = 1002,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 3,
-                    Nombre = "San Nicolas seccion 1",
-                    Cp = 1003,
+                    Nombre = "Florencio Varela",
+                    Cp = 1888,
                     IdProvincia = 1,
                 });
 
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 4,
-                    Nombre = "San Nicolas seccion 2",
-                    Cp = 1004,
+                    Nombre = "Quilmes",
+                    Cp = 1878,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 5,
-                    Nombre = "San Nicolas seccion 3",
-                    Cp = 1005,
+                    Nombre = "Avellaneda",
+                    Cp = 1870,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 6,
-                    Nombre = "Retiro seccion 2",
-                    Cp = 1006,
+                    Nombre = "Berazategui",
+                    Cp = 1884,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 7,
-                    Nombre = "Retiro seccion 3",
-                    Cp = 1007,
+                    Nombre = "Lanus",
+                    Cp = 1824,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 8,
-                    Nombre = "Monserrat seccion 2",
-                    Cp = 1001,
+                    Nombre = "Banfield",
+                    Cp = 1828,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 9,
-                    Nombre = "San Nicolas seccion 4",
-                    Cp = 1009,
+                    Nombre = "La Plata",
+                    Cp = 1900,
                     IdProvincia = 1,
                 });
 
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 10,
-                    Nombre = "San Nicolas seccion 5",
-                    Cp = 1010,
+                    Nombre = "Ranelagh",
+                    Cp = 1886,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 11,
-                    Nombre = "Retiro seccion 4",
-                    Cp = 1011,
+                    Nombre = "San Francisco Solano",
+                    Cp = 1846,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 12,
-                    Nombre = "Monserrat seccion 3",
-                    Cp = 1012,
+                    Nombre = "Berisso",
+                    Cp = 1923,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 13,
-                    Nombre = "San Nicolas seccion 6",
-                    Cp = 1013,
+                    Nombre = "Wilde",
+                    Cp = 1875,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 14,
-                    Nombre = "Recoleta seccion 1",
-                    Cp = 1014,
+                    Nombre = "Chascomus",
+                    Cp = 7130,
                     IdProvincia = 1,
                 });
 
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 15,
-                    Nombre = "San Nicolas seccion 7",
-                    Cp = 1015,
+                    Nombre = "Punta Lara",
+                    Cp = 1931,
                     IdProvincia = 1,
                 });
 
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 16,
-                    Nombre = "Recoleta seccion 2",
-                    Cp = 1016,
+                    Nombre = "Guillermo Hudson",
+                    Cp = 1885,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 17,
-                    Nombre = "San Nicolas seccion seccion 8",
-                    Cp = 1017,
+                    Nombre = "Bernal",
+                    Cp = 1876,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 18,
-                    Nombre = "Recoleta seccion 3",
+                    Nombre = "Recoleta",
                     Cp = 1018,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 19,
-                    Nombre = "Recoleta seccion 4",
-                    Cp = 1019,
+                    Nombre = "Punta Indio",
+                    Cp = 1917,
                     IdProvincia = 1,
                 });
                 entity.HasData(new Localidad
                 {
                     IdLocalidad = 20,
-                    Nombre = "Recoleta seccion 5",
-                    Cp = 1020,
+                    Nombre = "Temperley",
+                    Cp = 1874,
                     IdProvincia = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal=1,
+                    Nombre="EnvioYaRetiro",
+                    IdDireccion=1,
+                    IdEstado=1,
+                });
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 1,
+                    Latitud ="21°:32':45'' Norte",
+                    Longitud = "47°:24':51'' Sur",
+                    Calle="Amancio ALcorta",
+                    Altura=1574,
+                    IdLocalidad=1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 2,
+                    Nombre = "EnvioMonserrat",
+                    IdDireccion = 2,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 2,
+                    Latitud = "11°:2':13'' Esta",
+                    Longitud = "7°:4':48'' Sur",
+                    Calle = "Alsina",
+                    Altura = 7554,
+                    IdLocalidad = 2,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 1,
+                    Nombre = "EnvioYaFlorencioVarela",
+                    IdDireccion = 3,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 3,
+                    Latitud = "31°:17':45'' Norte",
+                    Longitud = "4°:42':18'' Oeste",
+                    Calle = "Hipolito Yrigoyen",
+                    Altura = 2885,
+                    IdLocalidad = 3,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 4,
+                    Nombre = "EnvioYaQuilmes",
+                    IdDireccion = 4,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 4,
+                    Latitud = "13°:32':15'' Norte",
+                    Longitud = "4°:4':11'' Sur",
+                    Calle = "Leandro N Alem",
+                    Altura = 578,
+                    IdLocalidad = 4,
                 });
             });
 
