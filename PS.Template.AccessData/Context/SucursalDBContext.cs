@@ -264,7 +264,7 @@ namespace PS.Template.API.Entities
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Sucursal_Direccion");
 
-                entity.Property(e => e.IdEstado).HasColumnName("idEstado");               
+                entity.Property(e => e.IdEstado).HasColumnName("IdEstado");               
 
                 entity.HasOne(d => d.IdEstadoNavigation)
                    .WithMany(p => p.Sucursal)
@@ -275,10 +275,10 @@ namespace PS.Template.API.Entities
 
             modelBuilder.Entity<EstadoSucursal>(entity =>
             {
-                entity.HasKey(e => e.idEstado);
+                entity.HasKey(e => e.IdEstado);
 
-                entity.Property(e => e.idEstado)
-                        .HasColumnName("idEstado")
+                entity.Property(e => e.IdEstado)
+                        .HasColumnName("IdEstado")
                         .ValueGeneratedNever();
 
                 entity.Property(e => e.Descripcion)
@@ -287,8 +287,8 @@ namespace PS.Template.API.Entities
                     .IsUnicode(false);
                 
                 entity.ToTable("EstadoSucursal");
-                entity.HasData(new EstadoSucursal { idEstado = 1, Descripcion = "Habilitada" });
-                entity.HasData(new EstadoSucursal { idEstado = 2, Descripcion = "Inhabilitada" });
+                entity.HasData(new EstadoSucursal { IdEstado = 1, Descripcion = "Habilitada" });
+                entity.HasData(new EstadoSucursal { IdEstado = 2, Descripcion = "Inhabilitada" });
             });            
         }
     }

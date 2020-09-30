@@ -62,8 +62,8 @@ namespace PS.Template.AccessData.Migrations
 
             modelBuilder.Entity("PS.Template.Domain.Entities.EstadoSucursal", b =>
                 {
-                    b.Property<int>("idEstado")
-                        .HasColumnName("idEstado")
+                    b.Property<int>("IdEstado")
+                        .HasColumnName("IdEstado")
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
@@ -72,19 +72,19 @@ namespace PS.Template.AccessData.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.HasKey("idEstado");
+                    b.HasKey("IdEstado");
 
                     b.ToTable("EstadoSucursal");
 
                     b.HasData(
                         new
                         {
-                            idEstado = 1,
+                            IdEstado = 1,
                             Descripcion = "Habilitada"
                         },
                         new
                         {
-                            idEstado = 2,
+                            IdEstado = 2,
                             Descripcion = "Inhabilitada"
                         });
                 });
@@ -293,7 +293,7 @@ namespace PS.Template.AccessData.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("IdEstado")
-                        .HasColumnName("idEstado")
+                        .HasColumnName("IdEstado")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")

@@ -10,12 +10,12 @@ namespace PS.Template.AccessData.Migrations
                 name: "EstadoSucursal",
                 columns: table => new
                 {
-                    idEstado = table.Column<int>(nullable: false),
+                    IdEstado = table.Column<int>(nullable: false),
                     Descripcion = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstadoSucursal", x => x.idEstado);
+                    table.PrimaryKey("PK_EstadoSucursal", x => x.IdEstado);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,7 +80,7 @@ namespace PS.Template.AccessData.Migrations
                     idSucursal = table.Column<int>(nullable: false),
                     Nombre = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     idDireccion = table.Column<int>(nullable: false),
-                    idEstado = table.Column<int>(nullable: false)
+                    IdEstado = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -93,20 +93,20 @@ namespace PS.Template.AccessData.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Sucursal_EstadoSucursal",
-                        column: x => x.idEstado,
+                        column: x => x.IdEstado,
                         principalTable: "EstadoSucursal",
-                        principalColumn: "idEstado",
+                        principalColumn: "IdEstado",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "EstadoSucursal",
-                columns: new[] { "idEstado", "Descripcion" },
+                columns: new[] { "IdEstado", "Descripcion" },
                 values: new object[] { 1, "Habilitada" });
 
             migrationBuilder.InsertData(
                 table: "EstadoSucursal",
-                columns: new[] { "idEstado", "Descripcion" },
+                columns: new[] { "IdEstado", "Descripcion" },
                 values: new object[] { 2, "Inhabilitada" });
 
             migrationBuilder.InsertData(
@@ -157,9 +157,9 @@ namespace PS.Template.AccessData.Migrations
                 column: "idDireccion");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sucursal_idEstado",
+                name: "IX_Sucursal_IdEstado",
                 table: "Sucursal",
-                column: "idEstado");
+                column: "IdEstado");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
