@@ -21,7 +21,12 @@ namespace PS.Template.AccessData.Queries
         public List<ResponseGetLocalidad> GetAllLocalidad()
         {
             var db = new QueryFactory(connection, sqlKatacompiler);
-            var query = db.Query("Localidad");
+            var query = db.Query("Localidad")
+                .Select("Localidad.IdLocalidad",
+                "Localidad.Nombre",
+                "Localidad.Cp",
+                "Provincia.Nombre AS NombreProvincia")
+                .Join("Provincia", "Provincia.IdProvincia", "Localidad.IdProvincia");
             var result = query.Get<ResponseGetLocalidad>();
             return result.ToList();
         }
