@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PS.Template.Domain.DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,6 +16,5 @@ namespace PS.Template.Domain.Commands
         void AddRange(IEnumerable<E> entity);
         void DeleteRange(IEnumerable<E> entity);
         E FindById(int id);
-
     }
 }

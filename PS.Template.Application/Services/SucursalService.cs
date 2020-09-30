@@ -5,14 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using PS.Template.AccessData.Repositories;
+using PS.Template.Domain.DTO;
+using PS.Template.Domain.Interfaces.Queries;
 
 namespace PS.Template.Application.Services
 {
-    public class SucursalService : BaseService<Sucursal>, ISucursalService
+    public class SucursalService : BaseService<Sucursal>, ISucursalService, ISucursalQuery
     {
-        public SucursalService(ISucursalRepository repository) : base(repository)
+        private readonly ISucursalQuery _query;
+        public SucursalService(ISucursalRepository repository, ISucursalQuery query) : base(repository)
         {
+            _query = query;
+        }
 
+        public List<ResponseGetSucursal> GetSucursal(int idSucursal, int IdEstado)
+        {
+            return _query.GetSucursal(idSucursal, IdEstado);
         }
     }
 }
