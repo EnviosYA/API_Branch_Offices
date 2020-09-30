@@ -1,14 +1,10 @@
 ﻿using PS.Template.Domain.Entities;
 using PS.Template.Application.Services.Base;
 using PS.Template.Domain.Interfaces.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using PS.Template.AccessData.Repositories;
 using TP2.REST.Domain.DTO;
 using PS.Template.Domain.DTO;
 using PS.Template.Domain.Interfaces.Queries;
-using SqlKata;
 
 namespace PS.Template.Application.Services
 {

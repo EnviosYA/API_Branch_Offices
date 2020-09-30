@@ -4,11 +4,8 @@ using PS.Template.Domain.Entities;
 using PS.Template.Domain.Interfaces.Queries;
 using SqlKata.Compilers;
 using SqlKata.Execution;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace PS.Template.AccessData.Queries
 {
