@@ -10,5 +10,6 @@ namespace PS.Template.Domain.Interfaces.Queries
     public interface ISucursalQuery : IBaseQuery<Sucursal>
     {
         List<ResponseGetSucursal> GetSucursal(int idSucursal, int IdEstado);
+        GenericModifyResponseDTO ModifyEstado(int idSucursal);
     }
 }

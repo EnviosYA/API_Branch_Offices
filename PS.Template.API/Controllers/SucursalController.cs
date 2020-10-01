@@ -26,5 +26,18 @@ namespace PS.Template.API.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpPut]
+        public IActionResult Put(int idSucursal)
+        {
+            try
+            {
+                return new JsonResult(_service.ModifyEstado(idSucursal)) { StatusCode = 204 };
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

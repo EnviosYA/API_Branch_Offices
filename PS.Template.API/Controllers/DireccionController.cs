@@ -40,6 +40,5 @@ namespace PS.Template.API.Controllers
                 return BadRequest(e.Message);
             }
         }
-
     }
 }

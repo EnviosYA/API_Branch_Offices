@@ -20,5 +20,10 @@ namespace PS.Template.Application.Services
         {
             return _query.GetSucursal(idSucursal, IdEstado);
         }
+
+        public GenericModifyResponseDTO ModifyEstado(int idSucursal)
+        {
+            return _query.ModifyEstado(idSucursal);
+        }
     }
 }
