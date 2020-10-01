@@ -29,11 +29,16 @@ namespace PS.Template.Application.Services
             Add(entity);
 
             return new GenericCreatedResponseDTO { Entity = "Direccion", Id = entity.IdDireccion.ToString() };
-        }
+        }        
 
         public ResponseGetDireccion GetByID(int id)
         {
             return _query.GetByID(id);
-        }        
+        }
+
+        public GenericDeleteResponseDTO DeleteDireccion(int idDireccion)
+        {
+            return _query.DeleteDireccion(idDireccion);
+        }
     }
 }

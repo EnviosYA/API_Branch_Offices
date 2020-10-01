@@ -40,5 +40,17 @@ namespace PS.Template.API.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpDelete]
+        public IActionResult Delete(int idDireccion)
+        {
+            try
+            {
+                return new JsonResult(_service.DeleteDireccion(idDireccion)) { StatusCode = 204 };
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
