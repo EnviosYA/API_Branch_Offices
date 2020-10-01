@@ -16,23 +16,6 @@ namespace PS.Template.Application.Services
         {
             _query = query;
         }
-
-        public GenericCreatedResponseDTO CreateLocalidad(LocalidadDTO localidadDTO)
-        {
-            var entity = new Localidad
-            {
-                Nombre = localidadDTO.Nombre,
-                Cp = localidadDTO.Cp,
-                IdProvincia = localidadDTO.IdProvincia
-            };
-            Repository.Add(entity);
-            return new GenericCreatedResponseDTO
-            {
-                Entity = "Localidad",
-                Id = entity.IdLocalidad.ToString()
-            };
-        }
-
         
         public List<ResponseGetLocalidad> GetLocalidad()
         {

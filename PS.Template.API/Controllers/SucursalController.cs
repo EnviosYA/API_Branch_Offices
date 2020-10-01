@@ -19,7 +19,7 @@ namespace PS.Template.API.Controllers
         {
             try
             {
-                return new JsonResult(_service.GetSucursal(idSucursal,IdEstado)) { StatusCode = 201 };
+                return new JsonResult(_service.GetSucursal(idSucursal,IdEstado)) { StatusCode = 200 };
             }
             catch (Exception e)
             {

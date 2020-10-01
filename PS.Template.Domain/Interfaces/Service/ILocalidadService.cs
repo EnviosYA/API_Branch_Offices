@@ -8,7 +8,6 @@ namespace PS.Template.Domain.Interfaces.Service
 {
     public interface ILocalidadService : IBaseService<Localidad>
     {
-        GenericCreatedResponseDTO CreateLocalidad(LocalidadDTO localidadDTO);
         List<ResponseGetLocalidad> GetLocalidad();
     }
 }

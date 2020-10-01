@@ -33,7 +33,7 @@ namespace PS.Template.API.Controllers
         {
             try
             {
-                return new JsonResult(_service.GetByID(id)) { StatusCode = 201 };
+                return new JsonResult(_service.GetByID(id)) { StatusCode = 200 };
             }
             catch (Exception e)
             {
