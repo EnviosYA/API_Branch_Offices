@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-
 namespace PS.Template.Domain.Commands
 {
     public interface IGenericsRepository<E> where E : class
@@ -14,6 +13,5 @@ namespace PS.Template.Domain.Commands
         void AddRange(IEnumerable<E> entity);
         void DeleteRange(IEnumerable<E> entity);
         E FindById(int id);
-
     }
 }

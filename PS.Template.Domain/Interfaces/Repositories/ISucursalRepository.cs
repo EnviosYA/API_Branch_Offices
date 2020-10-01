@@ -5,5 +5,6 @@ namespace PS.Template.AccessData.Repositories
 {
     public interface ISucursalRepository : IGenericsRepository<Sucursal>
     {
+
     }
 }

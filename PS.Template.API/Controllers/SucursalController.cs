@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PS.Template.Domain.Interfaces.Service;
+using System;
 
 namespace PS.Template.API.Controllers
 {
@@ -11,6 +12,19 @@ namespace PS.Template.API.Controllers
         public SucursalController(ISucursalService service)
         {
             _service = service;
+        }
+
+        [HttpGet]
+        public IActionResult Get([FromQuery] int idSucursal, [FromQuery] int IdEstado)
+        {
+            try
+            {
+                return new JsonResult(_service.GetSucursal(idSucursal,IdEstado)) { StatusCode = 201 };
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

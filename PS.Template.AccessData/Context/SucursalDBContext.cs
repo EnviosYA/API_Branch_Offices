@@ -21,6 +21,194 @@ namespace PS.Template.API.Entities
         public virtual DbSet<EstadoSucursal> EstadoSucursal { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Provincia>(entity =>
+            {
+                entity.HasKey(e => e.IdProvincia);
+
+                entity.Property(e => e.IdProvincia)
+                    .HasColumnName("idProvincia");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasData(new Provincia
+                {
+                    IdProvincia = 1,
+                    Nombre = "Buenos Aires",
+                });
+            });
+
+            modelBuilder.Entity<Localidad>(entity =>
+            {
+                entity.HasKey(e => e.IdLocalidad);
+
+                entity.Property(e => e.IdLocalidad)
+                    .HasColumnName("idLocalidad");
+
+                entity.Property(e => e.Cp).HasColumnName("CP");
+
+                entity.Property(e => e.IdProvincia).HasColumnName("idProvincia");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.IdProvinciaNavigation)
+                    .WithMany(p => p.Localidad)
+                    .HasForeignKey(d => d.IdProvincia)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Localidad_Provincia");
+
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 1,
+                    Nombre = "Retiro",
+                    Cp = 1001,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 2,
+                    Nombre = "Monserrat",
+                    Cp = 1002,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 3,
+                    Nombre = "Florencio Varela",
+                    Cp = 1888,
+                    IdProvincia = 1,
+                });
+
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 4,
+                    Nombre = "Quilmes",
+                    Cp = 1878,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 5,
+                    Nombre = "Avellaneda",
+                    Cp = 1870,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 6,
+                    Nombre = "Berazategui",
+                    Cp = 1884,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 7,
+                    Nombre = "Lanus",
+                    Cp = 1824,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 8,
+                    Nombre = "Banfield",
+                    Cp = 1828,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 9,
+                    Nombre = "La Plata",
+                    Cp = 1900,
+                    IdProvincia = 1,
+                });
+
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 10,
+                    Nombre = "Ranelagh",
+                    Cp = 1886,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 11,
+                    Nombre = "San Francisco Solano",
+                    Cp = 1846,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 12,
+                    Nombre = "Berisso",
+                    Cp = 1923,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 13,
+                    Nombre = "Wilde",
+                    Cp = 1875,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 14,
+                    Nombre = "Chascomus",
+                    Cp = 7130,
+                    IdProvincia = 1,
+                });
+
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 15,
+                    Nombre = "Punta Lara",
+                    Cp = 1931,
+                    IdProvincia = 1,
+                });
+
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 16,
+                    Nombre = "Guillermo Hudson",
+                    Cp = 1885,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 17,
+                    Nombre = "Bernal",
+                    Cp = 1876,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 18,
+                    Nombre = "Recoleta",
+                    Cp = 1018,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 19,
+                    Nombre = "Punta Indio",
+                    Cp = 1917,
+                    IdProvincia = 1,
+                });
+                entity.HasData(new Localidad
+                {
+                    IdLocalidad = 20,
+                    Nombre = "Temperley",
+                    Cp = 1874,
+                    IdProvincia = 1,
+                });
+
+            });
+
             modelBuilder.Entity<Direccion>(entity =>
             {
                 entity.HasKey(e => e.IdDireccion);
@@ -50,196 +238,62 @@ namespace PS.Template.API.Entities
                     .HasForeignKey(d => d.IdLocalidad)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Direccion_Localidad");
-            });            
 
-            modelBuilder.Entity<Provincia>(entity =>
-            {
-                entity.HasKey(e => e.IdProvincia);
-
-                entity.Property(e => e.IdProvincia)
-                    .HasColumnName("idProvincia")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Nombre)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.HasData(new Provincia
+                entity.HasData(new Direccion
                 {
-                    IdProvincia = 1,
-                    Nombre = "Buenos Aires",
+                    IdDireccion = 1,
+                    Latitud = "21°:32':45'' Norte",
+                    Longitud = "47°:24':51'' Sur",
+                    Calle = "Amancio ALcorta",
+                    Altura = 1574,
+                    IdLocalidad = 1,
+                });
+
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 2,
+                    Latitud = "11°:2':13'' Esta",
+                    Longitud = "7°:4':48'' Sur",
+                    Calle = "Alsina",
+                    Altura = 7554,
+                    IdLocalidad = 2,
+                });
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 3,
+                    Latitud = "31°:17':45'' Norte",
+                    Longitud = "4°:42':18'' Oeste",
+                    Calle = "Hipolito Yrigoyen",
+                    Altura = 2885,
+                    IdLocalidad = 3,
+                });
+                entity.HasData(new Direccion
+                {
+                    IdDireccion = 4,
+                    Latitud = "13°:32':15'' Norte",
+                    Longitud = "4°:4':11'' Sur",
+                    Calle = "Leandro N Alem",
+                    Altura = 578,
+                    IdLocalidad = 4,
                 });
             });
 
-            modelBuilder.Entity<Localidad>(entity =>
+            modelBuilder.Entity<EstadoSucursal>(entity =>
             {
-                entity.HasKey(e => e.IdLocalidad);
+                entity.HasKey(e => e.IdEstado);
 
-                entity.Property(e => e.IdLocalidad)
-                    .HasColumnName("idLocalidad")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.IdEstado)
+                        .HasColumnName("IdEstado")
+                        .ValueGeneratedNever();
 
-                entity.Property(e => e.Cp).HasColumnName("CP");
-
-                entity.Property(e => e.IdProvincia).HasColumnName("idProvincia");
-
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Descripcion)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdProvinciaNavigation)
-                    .WithMany(p => p.Localidad)
-                    .HasForeignKey(d => d.IdProvincia)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Localidad_Provincia");
-
-
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 1,
-                    Nombre = "Retiro seccion 1",
-                    Cp = 1001,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 2,
-                    Nombre = "Monserrat seccion 1",
-                    Cp = 1002,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 3,
-                    Nombre = "San Nicolas seccion 1",
-                    Cp = 1003,
-                    IdProvincia = 1,
-                });
-
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 4,
-                    Nombre = "San Nicolas seccion 2",
-                    Cp = 1004,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 5,
-                    Nombre = "San Nicolas seccion 3",
-                    Cp = 1005,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 6,
-                    Nombre = "Retiro seccion 2",
-                    Cp = 1006,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 7,
-                    Nombre = "Retiro seccion 3",
-                    Cp = 1007,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 8,
-                    Nombre = "Monserrat seccion 2",
-                    Cp = 1001,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 9,
-                    Nombre = "San Nicolas seccion 4",
-                    Cp = 1009,
-                    IdProvincia = 1,
-                });
-
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 10,
-                    Nombre = "San Nicolas seccion 5",
-                    Cp = 1010,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 11,
-                    Nombre = "Retiro seccion 4",
-                    Cp = 1011,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 12,
-                    Nombre = "Monserrat seccion 3",
-                    Cp = 1012,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 13,
-                    Nombre = "San Nicolas seccion 6",
-                    Cp = 1013,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 14,
-                    Nombre = "Recoleta seccion 1",
-                    Cp = 1014,
-                    IdProvincia = 1,
-                });
-
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 15,
-                    Nombre = "San Nicolas seccion 7",
-                    Cp = 1015,
-                    IdProvincia = 1,
-                });
-
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 16,
-                    Nombre = "Recoleta seccion 2",
-                    Cp = 1016,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 17,
-                    Nombre = "San Nicolas seccion seccion 8",
-                    Cp = 1017,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 18,
-                    Nombre = "Recoleta seccion 3",
-                    Cp = 1018,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 19,
-                    Nombre = "Recoleta seccion 4",
-                    Cp = 1019,
-                    IdProvincia = 1,
-                });
-                entity.HasData(new Localidad
-                {
-                    IdLocalidad = 20,
-                    Nombre = "Recoleta seccion 5",
-                    Cp = 1020,
-                    IdProvincia = 1,
-                });
+                entity.ToTable("EstadoSucursal");
+                entity.HasData(new EstadoSucursal { IdEstado = 1, Descripcion = "Habilitada" });
+                entity.HasData(new EstadoSucursal { IdEstado = 2, Descripcion = "Inhabilitada" });
             });
 
             modelBuilder.Entity<Sucursal>(entity =>
@@ -247,8 +301,7 @@ namespace PS.Template.API.Entities
                 entity.HasKey(e => e.IdSucursal);
 
                 entity.Property(e => e.IdSucursal)
-                    .HasColumnName("idSucursal")
-                    .ValueGeneratedNever();
+                    .HasColumnName("idSucursal");
 
                 entity.Property(e => e.IdDireccion).HasColumnName("idDireccion");
                 entity.Property(e => e.Nombre)
@@ -262,32 +315,43 @@ namespace PS.Template.API.Entities
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Sucursal_Direccion");
 
-                entity.Property(e => e.IdEstado).HasColumnName("idEstado");               
+                entity.Property(e => e.IdEstado).HasColumnName("IdEstado");               
 
                 entity.HasOne(d => d.IdEstadoNavigation)
                    .WithMany(p => p.Sucursal)
                    .HasForeignKey(d => d.IdEstado)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_Sucursal_EstadoSucursal");
-            });
 
-            modelBuilder.Entity<EstadoSucursal>(entity =>
-            {
-                entity.HasKey(e => e.idEstado);
-
-                entity.Property(e => e.idEstado)
-                        .HasColumnName("idEstado")
-                        .ValueGeneratedNever();
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-                
-                entity.ToTable("EstadoSucursal");
-                entity.HasData(new EstadoSucursal { idEstado = 1, Descripcion = "Habilitada" });
-                entity.HasData(new EstadoSucursal { idEstado = 2, Descripcion = "Inhabilitada" });
-            });            
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 1,
+                    Nombre = "EnvioYaRetiro",
+                    IdDireccion = 1,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 2,
+                    Nombre = "EnvioMonserrat",
+                    IdDireccion = 2,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 3,
+                    Nombre = "EnvioYaFlorencioVarela",
+                    IdDireccion = 3,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 4,
+                    Nombre = "EnvioYaQuilmes",
+                    IdDireccion = 4,
+                    IdEstado = 1,
+                });
+            });                     
         }
     }
 }

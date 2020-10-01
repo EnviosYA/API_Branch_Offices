@@ -26,15 +26,14 @@ namespace PS.Template.Application.Services
                 Altura = direccionDTO.Altura,
                 IdLocalidad = direccionDTO.IdLocalidad
             };
-            Repository.Add(entity);
+            Add(entity);
+
             return new GenericCreatedResponseDTO { Entity = "Direccion", Id = entity.IdDireccion.ToString() };
         }
 
         public ResponseGetDireccion GetByID(int id)
         {
             return _query.GetByID(id);
-        }
-
-        
+        }        
     }
 }

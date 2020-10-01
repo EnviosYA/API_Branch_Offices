@@ -59,7 +59,6 @@ namespace PS.Template.API
             services.AddTransient<ISucursalRepository, SucursalRepository>();
             services.AddTransient<IDireccionRepository, DireccionRepository>();
             services.AddTransient<ILocalidadRepository, LocalidadRepository>();
-            services.AddTransient<IProvinciaRepository, ProvinciaRepository>();
 
             
             services.AddTransient<ISucursalService, SucursalService>();
@@ -68,6 +67,7 @@ namespace PS.Template.API
 
             services.AddTransient<IDireccionQuery, DireccionQuery>();
             services.AddTransient<ILocalidadQuery, LocalidadQuery>();
+            services.AddTransient<ISucursalQuery, SucursalQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

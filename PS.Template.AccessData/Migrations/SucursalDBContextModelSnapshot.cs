@@ -56,12 +56,50 @@ namespace PS.Template.AccessData.Migrations
                     b.HasIndex("IdLocalidad");
 
                     b.ToTable("Direccion");
+
+                    b.HasData(
+                        new
+                        {
+                            IdDireccion = 1,
+                            Altura = 1574,
+                            Calle = "Amancio ALcorta",
+                            IdLocalidad = 1,
+                            Latitud = "21°:32':45'' Norte",
+                            Longitud = "47°:24':51'' Sur"
+                        },
+                        new
+                        {
+                            IdDireccion = 2,
+                            Altura = 7554,
+                            Calle = "Alsina",
+                            IdLocalidad = 2,
+                            Latitud = "11°:2':13'' Esta",
+                            Longitud = "7°:4':48'' Sur"
+                        },
+                        new
+                        {
+                            IdDireccion = 3,
+                            Altura = 2885,
+                            Calle = "Hipolito Yrigoyen",
+                            IdLocalidad = 3,
+                            Latitud = "31°:17':45'' Norte",
+                            Longitud = "4°:42':18'' Oeste"
+                        },
+                        new
+                        {
+                            IdDireccion = 4,
+                            Altura = 578,
+                            Calle = "Leandro N Alem",
+                            IdLocalidad = 4,
+                            Latitud = "13°:32':15'' Norte",
+                            Longitud = "4°:4':11'' Sur"
+                        });
                 });
 
             modelBuilder.Entity("PS.Template.Domain.Entities.EstadoSucursal", b =>
                 {
-                    b.Property<int>("idEstado")
-                        .HasColumnName("idEstado")
+                    b.Property<int>("IdEstado")
+                        .HasColumnName("IdEstado")
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
@@ -70,19 +108,19 @@ namespace PS.Template.AccessData.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.HasKey("idEstado");
+                    b.HasKey("IdEstado");
 
                     b.ToTable("EstadoSucursal");
 
                     b.HasData(
                         new
                         {
-                            idEstado = 1,
+                            IdEstado = 1,
                             Descripcion = "Habilitada"
                         },
                         new
                         {
-                            idEstado = 2,
+                            IdEstado = 2,
                             Descripcion = "Inhabilitada"
                         });
                 });
@@ -90,8 +128,10 @@ namespace PS.Template.AccessData.Migrations
             modelBuilder.Entity("PS.Template.Domain.Entities.Localidad", b =>
                 {
                     b.Property<int>("IdLocalidad")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("idLocalidad")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Cp")
                         .HasColumnName("CP")
@@ -119,148 +159,150 @@ namespace PS.Template.AccessData.Migrations
                             IdLocalidad = 1,
                             Cp = 1001,
                             IdProvincia = 1,
-                            Nombre = "Retiro seccion 1"
+                            Nombre = "Retiro"
                         },
                         new
                         {
                             IdLocalidad = 2,
                             Cp = 1002,
                             IdProvincia = 1,
-                            Nombre = "Monserrat seccion 1"
+                            Nombre = "Monserrat"
                         },
                         new
                         {
                             IdLocalidad = 3,
-                            Cp = 1003,
+                            Cp = 1888,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 1"
+                            Nombre = "Florencio Varela"
                         },
                         new
                         {
                             IdLocalidad = 4,
-                            Cp = 1004,
+                            Cp = 1878,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 2"
+                            Nombre = "Quilmes"
                         },
                         new
                         {
                             IdLocalidad = 5,
-                            Cp = 1005,
+                            Cp = 1870,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 3"
+                            Nombre = "Avellaneda"
                         },
                         new
                         {
                             IdLocalidad = 6,
-                            Cp = 1006,
+                            Cp = 1884,
                             IdProvincia = 1,
-                            Nombre = "Retiro seccion 2"
+                            Nombre = "Berazategui"
                         },
                         new
                         {
                             IdLocalidad = 7,
-                            Cp = 1007,
+                            Cp = 1824,
                             IdProvincia = 1,
-                            Nombre = "Retiro seccion 3"
+                            Nombre = "Lanus"
                         },
                         new
                         {
                             IdLocalidad = 8,
-                            Cp = 1001,
+                            Cp = 1828,
                             IdProvincia = 1,
-                            Nombre = "Monserrat seccion 2"
+                            Nombre = "Banfield"
                         },
                         new
                         {
                             IdLocalidad = 9,
-                            Cp = 1009,
+                            Cp = 1900,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 4"
+                            Nombre = "La Plata"
                         },
                         new
                         {
                             IdLocalidad = 10,
-                            Cp = 1010,
+                            Cp = 1886,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 5"
+                            Nombre = "Ranelagh"
                         },
                         new
                         {
                             IdLocalidad = 11,
-                            Cp = 1011,
+                            Cp = 1846,
                             IdProvincia = 1,
-                            Nombre = "Retiro seccion 4"
+                            Nombre = "San Francisco Solano"
                         },
                         new
                         {
                             IdLocalidad = 12,
-                            Cp = 1012,
+                            Cp = 1923,
                             IdProvincia = 1,
-                            Nombre = "Monserrat seccion 3"
+                            Nombre = "Berisso"
                         },
                         new
                         {
                             IdLocalidad = 13,
-                            Cp = 1013,
+                            Cp = 1875,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 6"
+                            Nombre = "Wilde"
                         },
                         new
                         {
                             IdLocalidad = 14,
-                            Cp = 1014,
+                            Cp = 7130,
                             IdProvincia = 1,
-                            Nombre = "Recoleta seccion 1"
+                            Nombre = "Chascomus"
                         },
                         new
                         {
                             IdLocalidad = 15,
-                            Cp = 1015,
+                            Cp = 1931,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion 7"
+                            Nombre = "Punta Lara"
                         },
                         new
                         {
                             IdLocalidad = 16,
-                            Cp = 1016,
+                            Cp = 1885,
                             IdProvincia = 1,
-                            Nombre = "Recoleta seccion 2"
+                            Nombre = "Guillermo Hudson"
                         },
                         new
                         {
                             IdLocalidad = 17,
-                            Cp = 1017,
+                            Cp = 1876,
                             IdProvincia = 1,
-                            Nombre = "San Nicolas seccion seccion 8"
+                            Nombre = "Bernal"
                         },
                         new
                         {
                             IdLocalidad = 18,
                             Cp = 1018,
                             IdProvincia = 1,
-                            Nombre = "Recoleta seccion 3"
+                            Nombre = "Recoleta"
                         },
                         new
                         {
                             IdLocalidad = 19,
-                            Cp = 1019,
+                            Cp = 1917,
                             IdProvincia = 1,
-                            Nombre = "Recoleta seccion 4"
+                            Nombre = "Punta Indio"
                         },
                         new
                         {
                             IdLocalidad = 20,
-                            Cp = 1020,
+                            Cp = 1874,
                             IdProvincia = 1,
-                            Nombre = "Recoleta seccion 5"
+                            Nombre = "Temperley"
                         });
                 });
 
             modelBuilder.Entity("PS.Template.Domain.Entities.Provincia", b =>
                 {
                     b.Property<int>("IdProvincia")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("idProvincia")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -283,15 +325,17 @@ namespace PS.Template.AccessData.Migrations
             modelBuilder.Entity("PS.Template.Domain.Entities.Sucursal", b =>
                 {
                     b.Property<int>("IdSucursal")
+                        .ValueGeneratedOnAdd()
                         .HasColumnName("idSucursal")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("IdDireccion")
                         .HasColumnName("idDireccion")
                         .HasColumnType("int");
 
                     b.Property<int>("IdEstado")
-                        .HasColumnName("idEstado")
+                        .HasColumnName("IdEstado")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -307,6 +351,36 @@ namespace PS.Template.AccessData.Migrations
                     b.HasIndex("IdEstado");
 
                     b.ToTable("Sucursal");
+
+                    b.HasData(
+                        new
+                        {
+                            IdSucursal = 1,
+                            IdDireccion = 1,
+                            IdEstado = 1,
+                            Nombre = "EnvioYaRetiro"
+                        },
+                        new
+                        {
+                            IdSucursal = 2,
+                            IdDireccion = 2,
+                            IdEstado = 1,
+                            Nombre = "EnvioMonserrat"
+                        },
+                        new
+                        {
+                            IdSucursal = 3,
+                            IdDireccion = 3,
+                            IdEstado = 1,
+                            Nombre = "EnvioYaFlorencioVarela"
+                        },
+                        new
+                        {
+                            IdSucursal = 4,
+                            IdDireccion = 4,
+                            IdEstado = 1,
+                            Nombre = "EnvioYaQuilmes"
+                        });
                 });
 
             modelBuilder.Entity("PS.Template.Domain.Entities.Direccion", b =>
