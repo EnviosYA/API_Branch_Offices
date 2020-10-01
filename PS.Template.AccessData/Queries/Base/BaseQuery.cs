@@ -1,9 +1,6 @@
 ﻿using PS.Template.Domain.Interfaces.Queries.Base;
 using SqlKata.Compilers;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
 namespace PS.Template.AccessData.Queries.Base
 {
@@ -16,8 +13,6 @@ namespace PS.Template.AccessData.Queries.Base
         {
             this.connection = connection;
             this.sqlKatacompiler = sqlKatacompiler;
-        }
-
-        
+        }        
     }
 }

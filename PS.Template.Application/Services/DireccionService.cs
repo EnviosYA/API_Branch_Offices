@@ -1,14 +1,10 @@
 ﻿using PS.Template.Domain.Entities;
 using PS.Template.Application.Services.Base;
 using PS.Template.Domain.Interfaces.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using PS.Template.AccessData.Repositories;
 using TP2.REST.Domain.DTO;
 using PS.Template.Domain.DTO;
 using PS.Template.Domain.Interfaces.Queries;
-using SqlKata;
 
 namespace PS.Template.Application.Services
 {
@@ -30,15 +26,14 @@ namespace PS.Template.Application.Services
                 Altura = direccionDTO.Altura,
                 IdLocalidad = direccionDTO.IdLocalidad
             };
-            Repository.Add(entity);
+            Add(entity);
+
             return new GenericCreatedResponseDTO { Entity = "Direccion", Id = entity.IdDireccion.ToString() };
         }
 
         public ResponseGetDireccion GetByID(int id)
         {
             return _query.GetByID(id);
-        }
-
-        
+        }        
     }
 }

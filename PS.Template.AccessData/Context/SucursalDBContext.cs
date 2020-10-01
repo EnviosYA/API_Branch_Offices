@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using PS.Template.Domain.Entities;
 
 namespace PS.Template.API.Entities
@@ -23,44 +21,12 @@ namespace PS.Template.API.Entities
         public virtual DbSet<EstadoSucursal> EstadoSucursal { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Direccion>(entity =>
-            {
-                entity.HasKey(e => e.IdDireccion);
-
-                entity.Property(e => e.IdDireccion)
-                    .HasColumnName("idDireccion");
-
-                entity.Property(e => e.Calle)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.IdLocalidad).HasColumnName("idLocalidad");
-
-                entity.Property(e => e.Latitud)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Longitud)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.IdLocalidadNavigation)
-                    .WithMany(p => p.Direccion)
-                    .HasForeignKey(d => d.IdLocalidad)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Direccion_Localidad");
-            });            
-
             modelBuilder.Entity<Provincia>(entity =>
             {
                 entity.HasKey(e => e.IdProvincia);
 
                 entity.Property(e => e.IdProvincia)
-                    .HasColumnName("idProvincia")
-                    .ValueGeneratedNever();
+                    .HasColumnName("idProvincia");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -79,8 +45,7 @@ namespace PS.Template.API.Entities
                 entity.HasKey(e => e.IdLocalidad);
 
                 entity.Property(e => e.IdLocalidad)
-                    .HasColumnName("idLocalidad")
-                    .ValueGeneratedNever();
+                    .HasColumnName("idLocalidad");
 
                 entity.Property(e => e.Cp).HasColumnName("CP");
 
@@ -96,7 +61,6 @@ namespace PS.Template.API.Entities
                     .HasForeignKey(d => d.IdProvincia)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Localidad_Provincia");
-
 
                 entity.HasData(new Localidad
                 {
@@ -242,29 +206,49 @@ namespace PS.Template.API.Entities
                     Cp = 1874,
                     IdProvincia = 1,
                 });
-                entity.HasData(new Sucursal
-                {
-                    IdSucursal=1,
-                    Nombre="EnvioYaRetiro",
-                    IdDireccion=1,
-                    IdEstado=1,
-                });
+
+            });
+
+            modelBuilder.Entity<Direccion>(entity =>
+            {
+                entity.HasKey(e => e.IdDireccion);
+
+                entity.Property(e => e.IdDireccion)
+                    .HasColumnName("idDireccion");
+
+                entity.Property(e => e.Calle)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IdLocalidad).HasColumnName("idLocalidad");
+
+                entity.Property(e => e.Latitud)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Longitud)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.IdLocalidadNavigation)
+                    .WithMany(p => p.Direccion)
+                    .HasForeignKey(d => d.IdLocalidad)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Direccion_Localidad");
+
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 1,
-                    Latitud ="21°:32':45'' Norte",
+                    Latitud = "21°:32':45'' Norte",
                     Longitud = "47°:24':51'' Sur",
-                    Calle="Amancio ALcorta",
-                    Altura=1574,
-                    IdLocalidad=1,
+                    Calle = "Amancio ALcorta",
+                    Altura = 1574,
+                    IdLocalidad = 1,
                 });
-                entity.HasData(new Sucursal
-                {
-                    IdSucursal = 2,
-                    Nombre = "EnvioMonserrat",
-                    IdDireccion = 2,
-                    IdEstado = 1,
-                });
+
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 2,
@@ -274,13 +258,6 @@ namespace PS.Template.API.Entities
                     Altura = 7554,
                     IdLocalidad = 2,
                 });
-                entity.HasData(new Sucursal
-                {
-                    IdSucursal = 1,
-                    Nombre = "EnvioYaFlorencioVarela",
-                    IdDireccion = 3,
-                    IdEstado = 1,
-                });
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 3,
@@ -289,13 +266,6 @@ namespace PS.Template.API.Entities
                     Calle = "Hipolito Yrigoyen",
                     Altura = 2885,
                     IdLocalidad = 3,
-                });
-                entity.HasData(new Sucursal
-                {
-                    IdSucursal = 4,
-                    Nombre = "EnvioYaQuilmes",
-                    IdDireccion = 4,
-                    IdEstado = 1,
                 });
                 entity.HasData(new Direccion
                 {
@@ -308,13 +278,30 @@ namespace PS.Template.API.Entities
                 });
             });
 
+            modelBuilder.Entity<EstadoSucursal>(entity =>
+            {
+                entity.HasKey(e => e.IdEstado);
+
+                entity.Property(e => e.IdEstado)
+                        .HasColumnName("IdEstado")
+                        .ValueGeneratedNever();
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.ToTable("EstadoSucursal");
+                entity.HasData(new EstadoSucursal { IdEstado = 1, Descripcion = "Habilitada" });
+                entity.HasData(new EstadoSucursal { IdEstado = 2, Descripcion = "Inhabilitada" });
+            });
+
             modelBuilder.Entity<Sucursal>(entity =>
             {
                 entity.HasKey(e => e.IdSucursal);
 
                 entity.Property(e => e.IdSucursal)
-                    .HasColumnName("idSucursal")
-                    .ValueGeneratedNever();
+                    .HasColumnName("idSucursal");
 
                 entity.Property(e => e.IdDireccion).HasColumnName("idDireccion");
                 entity.Property(e => e.Nombre)
@@ -335,25 +322,36 @@ namespace PS.Template.API.Entities
                    .HasForeignKey(d => d.IdEstado)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_Sucursal_EstadoSucursal");
-            });
 
-            modelBuilder.Entity<EstadoSucursal>(entity =>
-            {
-                entity.HasKey(e => e.IdEstado);
-
-                entity.Property(e => e.IdEstado)
-                        .HasColumnName("IdEstado")
-                        .ValueGeneratedNever();
-
-                entity.Property(e => e.Descripcion)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-                
-                entity.ToTable("EstadoSucursal");
-                entity.HasData(new EstadoSucursal { IdEstado = 1, Descripcion = "Habilitada" });
-                entity.HasData(new EstadoSucursal { IdEstado = 2, Descripcion = "Inhabilitada" });
-            });            
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 1,
+                    Nombre = "EnvioYaRetiro",
+                    IdDireccion = 1,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 2,
+                    Nombre = "EnvioMonserrat",
+                    IdDireccion = 2,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 3,
+                    Nombre = "EnvioYaFlorencioVarela",
+                    IdDireccion = 3,
+                    IdEstado = 1,
+                });
+                entity.HasData(new Sucursal
+                {
+                    IdSucursal = 4,
+                    Nombre = "EnvioYaQuilmes",
+                    IdDireccion = 4,
+                    IdEstado = 1,
+                });
+            });                     
         }
     }
 }

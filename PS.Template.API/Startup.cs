@@ -1,35 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using PS.Template.AccessData;
 using Microsoft.EntityFrameworkCore;
-using PS.Template.Domain.Commands;
-using PS.Template.Domain.Service;
 using PS.Template.Application.Services;
 using PS.Template.AccessData.Repositories;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Http;
 using PS.Template.API.Entities;
-using PS.Template.Domain.Entities;
 using PS.Template.Domain.Interfaces.Service;
 using PS.Template.AccessData.Queries;
 using PS.Template.Domain.Interfaces.Queries;
 using SqlKata.Compilers;
 using System.Data;
 using System.Data.SqlClient;
-using PS.Template.Domain.Interfaces.Queries.Base;
-using PS.Template.AccessData.Queries.Base;
-using PS.Template.Domain.Service.Base;
-using PS.Template.Application.Services.Base;
 
 namespace PS.Template.API
 {
@@ -75,13 +59,11 @@ namespace PS.Template.API
             services.AddTransient<ISucursalRepository, SucursalRepository>();
             services.AddTransient<IDireccionRepository, DireccionRepository>();
             services.AddTransient<ILocalidadRepository, LocalidadRepository>();
-            services.AddTransient<IProvinciaRepository, ProvinciaRepository>();
 
             
             services.AddTransient<ISucursalService, SucursalService>();
             services.AddTransient<IDireccionService, DireccionService>();
             services.AddTransient<ILocalidadService, LocalidadService>();
-            services.AddTransient<IProvinciaService, ProvinciaService>();
 
             services.AddTransient<IDireccionQuery, DireccionQuery>();
             services.AddTransient<ILocalidadQuery, LocalidadQuery>();

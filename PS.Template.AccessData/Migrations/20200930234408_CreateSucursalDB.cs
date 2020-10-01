@@ -22,7 +22,8 @@ namespace PS.Template.AccessData.Migrations
                 name: "Provincia",
                 columns: table => new
                 {
-                    idProvincia = table.Column<int>(nullable: false),
+                    idProvincia = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -34,7 +35,8 @@ namespace PS.Template.AccessData.Migrations
                 name: "Localidad",
                 columns: table => new
                 {
-                    idLocalidad = table.Column<int>(nullable: false),
+                    idLocalidad = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     CP = table.Column<int>(nullable: false),
                     idProvincia = table.Column<int>(nullable: false)
@@ -77,7 +79,8 @@ namespace PS.Template.AccessData.Migrations
                 name: "Sucursal",
                 columns: table => new
                 {
-                    idSucursal = table.Column<int>(nullable: false),
+                    idSucursal = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     idDireccion = table.Column<int>(nullable: false),
                     IdEstado = table.Column<int>(nullable: false)
@@ -119,26 +122,48 @@ namespace PS.Template.AccessData.Migrations
                 columns: new[] { "idLocalidad", "CP", "idProvincia", "Nombre" },
                 values: new object[,]
                 {
-                    { 1, 1001, 1, "Retiro seccion 1" },
-                    { 18, 1018, 1, "Recoleta seccion 3" },
-                    { 17, 1017, 1, "San Nicolas seccion seccion 8" },
-                    { 16, 1016, 1, "Recoleta seccion 2" },
-                    { 15, 1015, 1, "San Nicolas seccion 7" },
-                    { 14, 1014, 1, "Recoleta seccion 1" },
-                    { 13, 1013, 1, "San Nicolas seccion 6" },
-                    { 12, 1012, 1, "Monserrat seccion 3" },
-                    { 11, 1011, 1, "Retiro seccion 4" },
-                    { 10, 1010, 1, "San Nicolas seccion 5" },
-                    { 9, 1009, 1, "San Nicolas seccion 4" },
-                    { 8, 1001, 1, "Monserrat seccion 2" },
-                    { 7, 1007, 1, "Retiro seccion 3" },
-                    { 6, 1006, 1, "Retiro seccion 2" },
-                    { 5, 1005, 1, "San Nicolas seccion 3" },
-                    { 4, 1004, 1, "San Nicolas seccion 2" },
-                    { 3, 1003, 1, "San Nicolas seccion 1" },
-                    { 2, 1002, 1, "Monserrat seccion 1" },
-                    { 19, 1019, 1, "Recoleta seccion 4" },
-                    { 20, 1020, 1, "Recoleta seccion 5" }
+                    { 1, 1001, 1, "Retiro" },
+                    { 18, 1018, 1, "Recoleta" },
+                    { 17, 1876, 1, "Bernal" },
+                    { 16, 1885, 1, "Guillermo Hudson" },
+                    { 15, 1931, 1, "Punta Lara" },
+                    { 14, 7130, 1, "Chascomus" },
+                    { 13, 1875, 1, "Wilde" },
+                    { 12, 1923, 1, "Berisso" },
+                    { 11, 1846, 1, "San Francisco Solano" },
+                    { 10, 1886, 1, "Ranelagh" },
+                    { 9, 1900, 1, "La Plata" },
+                    { 8, 1828, 1, "Banfield" },
+                    { 7, 1824, 1, "Lanus" },
+                    { 6, 1884, 1, "Berazategui" },
+                    { 5, 1870, 1, "Avellaneda" },
+                    { 4, 1878, 1, "Quilmes" },
+                    { 3, 1888, 1, "Florencio Varela" },
+                    { 2, 1002, 1, "Monserrat" },
+                    { 19, 1917, 1, "Punta Indio" },
+                    { 20, 1874, 1, "Temperley" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Direccion",
+                columns: new[] { "idDireccion", "Altura", "Calle", "idLocalidad", "Latitud", "Longitud" },
+                values: new object[,]
+                {
+                    { 1, 1574, "Amancio ALcorta", 1, "21°:32':45'' Norte", "47°:24':51'' Sur" },
+                    { 2, 7554, "Alsina", 2, "11°:2':13'' Esta", "7°:4':48'' Sur" },
+                    { 3, 2885, "Hipolito Yrigoyen", 3, "31°:17':45'' Norte", "4°:42':18'' Oeste" },
+                    { 4, 578, "Leandro N Alem", 4, "13°:32':15'' Norte", "4°:4':11'' Sur" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sucursal",
+                columns: new[] { "idSucursal", "idDireccion", "IdEstado", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, "EnvioYaRetiro" },
+                    { 2, 2, 1, "EnvioMonserrat" },
+                    { 3, 3, 1, "EnvioYaFlorencioVarela" },
+                    { 4, 4, 1, "EnvioYaQuilmes" }
                 });
 
             migrationBuilder.CreateIndex(
