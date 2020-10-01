@@ -7,5 +7,6 @@ namespace PS.Template.Domain.Interfaces.Queries
     public interface IDireccionQuery : IBaseQuery<Direccion>
     {
         ResponseGetDireccion GetByID(int id);
+        GenericDeleteResponseDTO DeleteDireccion(int idDireccion);
     }
 }

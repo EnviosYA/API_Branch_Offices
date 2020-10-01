@@ -14,6 +14,7 @@ namespace PS.Template.AccessData.Queries
         public DireccionQuery(IDbConnection connection, Compiler sqlKatacompiler) : base(connection,sqlKatacompiler)
         {
         }
+
         public ResponseGetDireccion GetByID(int id)
         {
             var db = new QueryFactory(connection, sqlKatacompiler);
@@ -31,6 +32,15 @@ namespace PS.Template.AccessData.Queries
                 .FirstOrDefault();
 
             return direccion;
+        }
+
+        public GenericDeleteResponseDTO DeleteDireccion(int idDireccion)
+        {
+            var db = new QueryFactory(connection, sqlKatacompiler);
+            var direccion = db.Query("Direccion")
+                .Where("idDireccion", idDireccion)
+                .Delete();
+            return new GenericDeleteResponseDTO { Entity = "Direccion", Id = direccion, Estado = "Eliminado" };            
         }
     }
 }
