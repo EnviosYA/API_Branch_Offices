@@ -8,5 +8,6 @@ namespace PS.Template.Domain.Interfaces.Queries
     {
         ResponseGetDireccion GetByID(int id);
         GenericDeleteResponseDTO DeleteDireccion(int idDireccion);
+        bool ExisteLocalidad(int idLocalidad);
     }
 }

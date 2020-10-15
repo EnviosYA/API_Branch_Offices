@@ -42,5 +42,15 @@ namespace PS.Template.AccessData.Queries
                 .Delete();
             return new GenericDeleteResponseDTO { Entity = "Direccion", Id = direccion, Estado = "Eliminado" };            
         }
+
+        public bool ExisteLocalidad(int idLocalidad)
+        {
+            var db = new QueryFactory(connection, sqlKatacompiler);
+            bool existeLocalidad = db.Query("Localidad")
+                .Where("idLocalidad", idLocalidad)
+                .Get<bool>()
+                .FirstOrDefault();
+            return existeLocalidad;
+        }
     }
 }

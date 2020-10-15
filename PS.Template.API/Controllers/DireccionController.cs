@@ -20,7 +20,8 @@ namespace PS.Template.API.Controllers
         {
             try
             {
-                return new JsonResult(_service.CreateDireccion(direccionDTO)) { StatusCode = 201 };
+                ResponseBadRequest validar = _service.ValidarDireccion(direccionDTO);
+                return (validar == null) ? new JsonResult(_service.CreateDireccion(direccionDTO)) { StatusCode = 201 } : new JsonResult(validar) { StatusCode = 400 };
             }
             catch (Exception e)
             {

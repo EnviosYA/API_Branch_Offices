@@ -34,5 +34,14 @@ namespace PS.Template.Application.Services.Base
         {
             Repository.Edit(entity);
         }
+        public virtual E FindById(int id)
+        {
+            return Repository.FindById(id);
+        }
+
+        public virtual void Save()
+        {
+            Repository.Save();
+        }
     }
 }
