@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PS.Template.Domain.DTO;
 using PS.Template.Domain.Interfaces.Service;
 using System;
 
@@ -27,12 +28,19 @@ namespace PS.Template.API.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult Put(int idSucursal)
+        [HttpPatch]
+        public IActionResult Put(ModifySucursalDTO modifyDTO)
         {
             try
             {
-                return new JsonResult(_service.ModifyEstado(idSucursal)) { StatusCode = 204 };
+                ResponseBadRequest validar = _service.ValidarModify(modifyDTO.IdSucursal);
+                if (validar != null)
+                {
+                    return new JsonResult(validar) { StatusCode = 400 };
+                }
+                
+                _service.ModifyEstado(modifyDTO.IdSucursal);
+                return new StatusCodeResult(204);
             }
             catch (Exception e)
             {

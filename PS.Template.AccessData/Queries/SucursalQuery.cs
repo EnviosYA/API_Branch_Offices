@@ -41,9 +41,20 @@ namespace PS.Template.AccessData.Queries
                 .Get<ResponseGetSucursal>();
 
             return sucursales.ToList();
+        }        
+
+        public bool ExisteSucursal(int idSucursal)
+        {
+            var db = new QueryFactory(connection, sqlKatacompiler);
+            bool query = db.Query("Sucursal")
+                .Where("IdSucursal", idSucursal)                
+                .Get<bool>()
+                .FirstOrDefault();
+
+            return query;                
         }
 
-        public GenericModifyResponseDTO ModifyEstado(int idSucursal)
+        public void ModifyEstado(int idSucursal)
         {
             var db = new QueryFactory(connection, sqlKatacompiler);
 
@@ -59,8 +70,6 @@ namespace PS.Template.AccessData.Queries
                 {
                     IdEstado = (idEstado == 1 ? 2 : 1)
                 });
-
-            return new GenericModifyResponseDTO { Entity = "Sucursal", Id = sucursal, Estado = "Modificado" };
         }
     }
 } 

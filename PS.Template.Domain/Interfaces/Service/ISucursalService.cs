@@ -8,6 +8,7 @@ namespace PS.Template.Domain.Interfaces.Service
     public interface ISucursalService : IBaseService<Sucursal>
     {
         List<ResponseGetSucursal> GetSucursal(int idSucursal, int IdEstado);
-        GenericModifyResponseDTO ModifyEstado(int idSucursal);
+        void ModifyEstado(int idSucursal);
+        ResponseBadRequest ValidarModify(int idSucursal);
     }
 }
