@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace PS.Template.Application.Services
 {
-    public class SucursalService : BaseService<Sucursal>, ISucursalService, ISucursalQuery
+    public class SucursalService : BaseService<Sucursal>, ISucursalService
     {
         private readonly ISucursalQuery _query;
         public SucursalService(ISucursalRepository repository, ISucursalQuery query) : base(repository)

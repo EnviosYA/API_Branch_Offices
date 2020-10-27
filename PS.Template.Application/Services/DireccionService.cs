@@ -5,10 +5,11 @@ using PS.Template.AccessData.Repositories;
 using TP2.REST.Domain.DTO;
 using PS.Template.Domain.DTO;
 using PS.Template.Domain.Interfaces.Queries;
+using System.Xml.Linq;
 
 namespace PS.Template.Application.Services
 {
-    public class DireccionService : BaseService<Direccion>, IDireccionQuery, IDireccionService
+    public class DireccionService : BaseService<Direccion>, IDireccionService
     {
         private readonly IDireccionQuery _query;
         public DireccionService(IDireccionRepository repository, IDireccionQuery query) : base(repository)
@@ -27,6 +28,7 @@ namespace PS.Template.Application.Services
                 IdLocalidad = direccionDTO.IdLocalidad
             };
             Add(entity);
+            Save();          
 
             return new GenericCreatedResponseDTO { Entity = "Direccion", Id = entity.IdDireccion.ToString() };
         }        
@@ -38,7 +40,27 @@ namespace PS.Template.Application.Services
 
         public GenericDeleteResponseDTO DeleteDireccion(int idDireccion)
         {
-            return _query.DeleteDireccion(idDireccion);
+            Delete(idDireccion);
+            Save();
+            return new GenericDeleteResponseDTO { Entity = "Direccion", Id = idDireccion, Estado = "Eliminada" };
+        }
+
+        public ResponseBadRequest ValidarDireccion(DireccionDTO direccionDTO)
+        {
+            
+            if (!Validacion.SoloNumerosGrado(direccionDTO.Latitud))
+                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la latitud ingresada es incorrecto." };
+            if (!Validacion.SoloNumerosGrado(direccionDTO.Longitud))
+                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la longitud ingresada es incorrecto." };
+            if (!Validacion.SoloNumerosLetras(direccionDTO.Calle))
+                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la calle ingresada es incorrecto." };
+            if (!Validacion.SoloNumerosPositivos(direccionDTO.Altura))
+                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la altura ingresada es incorrecto." };
+            if (!Validacion.SoloNumerosPositivos(direccionDTO.Altura))
+                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la altura ingresada es incorrecto." };
+            if (!_query.ExisteLocalidad(direccionDTO.IdLocalidad))
+                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "La localidad ingresada no existe." };
+            return null;
         }
     }
 }

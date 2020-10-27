@@ -12,5 +12,7 @@ namespace PS.Template.Domain.Interfaces.Service
         ResponseGetDireccion GetByID(int id);
 
         GenericDeleteResponseDTO DeleteDireccion(int idDireccion);
+
+        ResponseBadRequest ValidarDireccion(DireccionDTO direccionDTO);
     }
 }
