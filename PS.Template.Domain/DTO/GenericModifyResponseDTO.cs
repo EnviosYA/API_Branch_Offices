@@ -2,11 +2,8 @@
 
 namespace PS.Template.Domain.DTO
 {
-    public class GenericModifyResponseDTO
+    public class ModifySucursalDTO
     {
-        public string Entity { get; set; }
-        public int Id { get; set; }
-
-        public string Estado { get; set; }
+        public int IdSucursal { get; set; }
     }
 }

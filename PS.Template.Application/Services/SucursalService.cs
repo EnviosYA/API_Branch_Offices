@@ -21,9 +21,16 @@ namespace PS.Template.Application.Services
             return _query.GetSucursal(idSucursal, IdEstado);
         }
 
-        public GenericModifyResponseDTO ModifyEstado(int idSucursal)
+        public void ModifyEstado(int idSucursal)
         {
-            return _query.ModifyEstado(idSucursal);
+            _query.ModifyEstado(idSucursal);
+        }
+
+        public ResponseBadRequest ValidarModify(int idSucursal)
+        {
+            if (!_query.ExisteSucursal(idSucursal))
+                return new ResponseBadRequest {CodigoDeError = 400, Mensaje = "No existe una sucursal con el id ingresado" };
+            return null;
         }
     }
 }
