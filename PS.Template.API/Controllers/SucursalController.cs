@@ -4,7 +4,7 @@ using System;
 
 namespace PS.Template.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/sucursales")]
     [ApiController]
     public class SucursalController : ControllerBase
     {

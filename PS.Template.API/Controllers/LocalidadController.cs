@@ -4,7 +4,7 @@ using PS.Template.Domain.Interfaces.Service;
 
 namespace PS.Template.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/localidades")]
     [ApiController]
     public class LocalidadController : ControllerBase
     {

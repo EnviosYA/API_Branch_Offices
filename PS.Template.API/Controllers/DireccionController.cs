@@ -5,7 +5,7 @@ using PS.Template.Domain.Interfaces.Service;
 
 namespace PS.Template.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/direcciones")]
     [ApiController]
     public class DireccionController : ControllerBase
     {
