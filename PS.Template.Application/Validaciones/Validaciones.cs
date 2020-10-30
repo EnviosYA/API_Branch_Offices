@@ -61,7 +61,7 @@ namespace PS.Template.Application.Validaciones
             }
             else
             {
-                responseDTO.mensaje = responseDTO.mensaje + ", " + mensaje;
+                responseDTO.mensaje = responseDTO.mensaje + " * " + mensaje;
             }
 
             return responseDTO;
