@@ -56,6 +56,15 @@ namespace PS.Template.API
                 });
             });
 
+            //CORS
+            services.AddCors(c => {
+                c.AddPolicy("AllowOrigin", options => options
+                                                            .AllowAnyOrigin()
+                                                            .AllowAnyMethod()
+                                                            .AllowAnyHeader());
+            });
+
+
             services.AddTransient<ISucursalRepository, SucursalRepository>();
             services.AddTransient<IDireccionRepository, DireccionRepository>();
             services.AddTransient<ILocalidadRepository, LocalidadRepository>();
@@ -89,6 +98,14 @@ namespace PS.Template.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //Indicamos a la app utilizar Cors
+            app.UseCors(options =>
+            {
+                options.AllowAnyMethod();
+                options.AllowAnyHeader();
+                options.AllowAnyOrigin();
+            });
 
             app.UseAuthorization();
 
