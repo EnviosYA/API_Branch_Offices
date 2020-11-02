@@ -242,38 +242,38 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 1,
-                    Latitud = "21°:32':45'' Norte",
-                    Longitud = "47°:24':51'' Sur",
-                    Calle = "Amancio ALcorta",
-                    Altura = 1574,
+                    Latitud = "-34.5901743",
+                    Longitud = "-58.3796545",
+                    Calle = "Av. del Libertador",
+                    Altura = 408,
                     IdLocalidad = 1,
                 });
 
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 2,
-                    Latitud = "11°:2':13'' Esta",
-                    Longitud = "7°:4':48'' Sur",
-                    Calle = "Alsina",
-                    Altura = 7554,
+                    Latitud = "-34.613230",
+                    Longitud = "-58.383805",
+                    Calle = "Av. Belgrano",
+                    Altura = 1201,
                     IdLocalidad = 2,
                 });
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 3,
-                    Latitud = "31°:17':45'' Norte",
-                    Longitud = "4°:42':18'' Oeste",
-                    Calle = "Hipolito Yrigoyen",
-                    Altura = 2885,
+                    Latitud = "-34.796817",
+                    Longitud = "-58.279027",
+                    Calle = "Av. Gral. José de San Martín",
+                    Altura = 1999,
                     IdLocalidad = 3,
                 });
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 4,
-                    Latitud = "13°:32':15'' Norte",
-                    Longitud = "4°:4':11'' Sur",
-                    Calle = "Leandro N Alem",
-                    Altura = 578,
+                    Latitud = "-34.725701",
+                    Longitud = "-58.262265",
+                    Calle = "3 de Febrero",
+                    Altura = 204,
                     IdLocalidad = 4,
                 });
             });
