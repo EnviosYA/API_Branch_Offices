@@ -47,11 +47,6 @@ namespace PS.Template.Application.Services
 
         public ResponseBadRequest ValidarDireccion(DireccionDTO direccionDTO)
         {
-            
-            if (!Validacion.SoloNumerosGrado(direccionDTO.Latitud))
-                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la latitud ingresada es incorrecto." };
-            if (!Validacion.SoloNumerosGrado(direccionDTO.Longitud))
-                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la longitud ingresada es incorrecto." };
             if (!Validacion.SoloNumerosLetras(direccionDTO.Calle))
                 return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la calle ingresada es incorrecto." };
             if (!Validacion.SoloNumerosPositivos(direccionDTO.Altura))

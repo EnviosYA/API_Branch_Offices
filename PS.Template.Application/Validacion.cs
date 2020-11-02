@@ -13,11 +13,6 @@ namespace PS.Template.Application
             return Regex.IsMatch(array, @"^[a-zA-Z0-9]+$");                       
         }
 
-        public static bool SoloNumerosGrado(string array)
-        {
-            return Regex.IsMatch(array, @"^[0-9°']+$");            
-        }
-
         public static bool SoloNumerosPositivos(int numero)
         {
             string numeroParse = numero.ToString();
