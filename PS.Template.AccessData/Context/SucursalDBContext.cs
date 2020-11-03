@@ -326,28 +326,28 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Sucursal
                 {
                     IdSucursal = 1,
-                    Nombre = "EnvioYaRetiro",
+                    Nombre = "EnvioYa Retiro",
                     IdDireccion = 1,
                     IdEstado = 1,
                 });
                 entity.HasData(new Sucursal
                 {
                     IdSucursal = 2,
-                    Nombre = "EnvioMonserrat",
+                    Nombre = "EnvioYa Monserrat",
                     IdDireccion = 2,
                     IdEstado = 1,
                 });
                 entity.HasData(new Sucursal
                 {
                     IdSucursal = 3,
-                    Nombre = "EnvioYaFlorencioVarela",
+                    Nombre = "EnvioYa Florencio Varela",
                     IdDireccion = 3,
                     IdEstado = 1,
                 });
                 entity.HasData(new Sucursal
                 {
                     IdSucursal = 4,
-                    Nombre = "EnvioYaQuilmes",
+                    Nombre = "EnvioYa Quilmes",
                     IdDireccion = 4,
                     IdEstado = 1,
                 });

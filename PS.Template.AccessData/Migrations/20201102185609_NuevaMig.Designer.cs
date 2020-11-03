@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PS.Template.API.Entities;
 
 namespace PS.Template.AccessData.Migrations
 {
     [DbContext(typeof(SucursalDBContext))]
-    partial class SucursalDBContextModelSnapshot : ModelSnapshot
+    [Migration("20201102185609_NuevaMig")]
+    partial class NuevaMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -358,28 +360,28 @@ namespace PS.Template.AccessData.Migrations
                             IdSucursal = 1,
                             IdDireccion = 1,
                             IdEstado = 1,
-                            Nombre = "EnvioYa Retiro"
+                            Nombre = "EnvioYaRetiro"
                         },
                         new
                         {
                             IdSucursal = 2,
                             IdDireccion = 2,
                             IdEstado = 1,
-                            Nombre = "EnvioYa Monserrat"
+                            Nombre = "EnvioMonserrat"
                         },
                         new
                         {
                             IdSucursal = 3,
                             IdDireccion = 3,
                             IdEstado = 1,
-                            Nombre = "EnvioYa Florencio Varela"
+                            Nombre = "EnvioYaFlorencioVarela"
                         },
                         new
                         {
                             IdSucursal = 4,
                             IdDireccion = 4,
                             IdEstado = 1,
-                            Nombre = "EnvioYa Quilmes"
+                            Nombre = "EnvioYaQuilmes"
                         });
                 });
 
