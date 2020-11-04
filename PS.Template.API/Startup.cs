@@ -14,6 +14,7 @@ using PS.Template.Domain.Interfaces.Queries;
 using SqlKata.Compilers;
 using System.Data;
 using System.Data.SqlClient;
+using PS.Template.JWSToken;
 
 namespace PS.Template.API
 {
@@ -59,9 +60,9 @@ namespace PS.Template.API
             //CORS
             services.AddCors(c => {
                 c.AddPolicy("AllowOrigin", options => options
-                                                            .AllowAnyOrigin()
-                                                            .AllowAnyMethod()
-                                                            .AllowAnyHeader());
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
             });
 
 
@@ -77,6 +78,8 @@ namespace PS.Template.API
             services.AddTransient<IDireccionQuery, DireccionQuery>();
             services.AddTransient<ILocalidadQuery, LocalidadQuery>();
             services.AddTransient<ISucursalQuery, SucursalQuery>();
+
+            services.AddJWTAuthentication(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -107,13 +110,14 @@ namespace PS.Template.API
                 options.AllowAnyOrigin();
             });
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
         }
     }
 }
