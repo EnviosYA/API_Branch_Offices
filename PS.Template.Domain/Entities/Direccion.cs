@@ -10,8 +10,8 @@ namespace PS.Template.Domain.Entities
         }
 
         public int IdDireccion { get; set; }
-        public string Latitud { get; set; }
-        public string Longitud { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
         public string Calle { get; set; }
         public int Altura { get; set; }
         public int IdLocalidad { get; set; }
