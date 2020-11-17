@@ -58,8 +58,8 @@ namespace PS.Template.AccessData.Migrations
                 {
                     idDireccion = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Latitud = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
-                    Longitud = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
+                    Latitud = table.Column<double>(unicode: false, maxLength: 50, nullable: false),
+                    Longitud = table.Column<double>(unicode: false, maxLength: 50, nullable: false),
                     Calle = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     Altura = table.Column<int>(nullable: false),
                     idLocalidad = table.Column<int>(nullable: false)
@@ -149,10 +149,10 @@ namespace PS.Template.AccessData.Migrations
                 columns: new[] { "idDireccion", "Altura", "Calle", "idLocalidad", "Latitud", "Longitud" },
                 values: new object[,]
                 {
-                    { 1, 1574, "Amancio ALcorta", 1, "21°:32':45'' Norte", "47°:24':51'' Sur" },
-                    { 2, 7554, "Alsina", 2, "11°:2':13'' Esta", "7°:4':48'' Sur" },
-                    { 3, 2885, "Hipolito Yrigoyen", 3, "31°:17':45'' Norte", "4°:42':18'' Oeste" },
-                    { 4, 578, "Leandro N Alem", 4, "13°:32':15'' Norte", "4°:4':11'' Sur" }
+                    { 1, 408, "Av. del Libertador", 1, -34.590174300000001, -58.379654500000001 },
+                    { 2, 1201, "Av. Belgrano", 2, -34.613230000000001, -58.383805000000002 },
+                    { 3, 1999, "Av. Gral. José de San Martín", 3, -34.796816999999997, -58.279026999999999 },
+                    { 4, 204, "3 de Febrero", 4, -34.725701000000001, -58.262264999999999 }
                 });
 
             migrationBuilder.InsertData(
@@ -160,10 +160,10 @@ namespace PS.Template.AccessData.Migrations
                 columns: new[] { "idSucursal", "idDireccion", "IdEstado", "Nombre" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "EnvioYaRetiro" },
-                    { 2, 2, 1, "EnvioMonserrat" },
-                    { 3, 3, 1, "EnvioYaFlorencioVarela" },
-                    { 4, 4, 1, "EnvioYaQuilmes" }
+                    { 1, 1, 1, "EnvioYa Retiro" },
+                    { 2, 2, 1, "EnvioYa Monserrat" },
+                    { 3, 3, 1, "EnvioYa Florencio Varela" },
+                    { 4, 4, 1, "EnvioYa Quilmes" }
                 });
 
             migrationBuilder.CreateIndex(

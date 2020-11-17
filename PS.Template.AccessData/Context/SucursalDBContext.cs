@@ -242,8 +242,8 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 1,
-                    Latitud = "-34.5901743",
-                    Longitud = "-58.3796545",
+                    Latitud = -34.5901743,
+                    Longitud = -58.3796545,
                     Calle = "Av. del Libertador",
                     Altura = 408,
                     IdLocalidad = 1,
@@ -252,8 +252,8 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 2,
-                    Latitud = "-34.613230",
-                    Longitud = "-58.383805",
+                    Latitud = -34.613230,
+                    Longitud = -58.383805,
                     Calle = "Av. Belgrano",
                     Altura = 1201,
                     IdLocalidad = 2,
@@ -261,8 +261,8 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 3,
-                    Latitud = "-34.796817",
-                    Longitud = "-58.279027",
+                    Latitud = -34.796817,
+                    Longitud = -58.279027,
                     Calle = "Av. Gral. José de San Martín",
                     Altura = 1999,
                     IdLocalidad = 3,
@@ -270,8 +270,8 @@ namespace PS.Template.API.Entities
                 entity.HasData(new Direccion
                 {
                     IdDireccion = 4,
-                    Latitud = "-34.725701",
-                    Longitud = "-58.262265",
+                    Latitud = -34.725701,
+                    Longitud = -58.262265,
                     Calle = "3 de Febrero",
                     Altura = 204,
                     IdLocalidad = 4,

@@ -1,20 +1,19 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using PS.Template.Application.Services;
-using PS.Template.AccessData.Repositories;
 using Microsoft.OpenApi.Models;
-using PS.Template.API.Entities;
-using PS.Template.Domain.Interfaces.Service;
 using PS.Template.AccessData.Queries;
+using PS.Template.AccessData.Repositories;
+using PS.Template.API.Entities;
+using PS.Template.Application.Services;
 using PS.Template.Domain.Interfaces.Queries;
+using PS.Template.Domain.Interfaces.Service;
 using SqlKata.Compilers;
 using System.Data;
 using System.Data.SqlClient;
-using PS.Template.JWSToken;
 
 namespace PS.Template.API
 {
@@ -79,7 +78,7 @@ namespace PS.Template.API
             services.AddTransient<ILocalidadQuery, LocalidadQuery>();
             services.AddTransient<ISucursalQuery, SucursalQuery>();
 
-            services.AddJWTAuthentication(Configuration);
+            //services.AddJWTAuthentication(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

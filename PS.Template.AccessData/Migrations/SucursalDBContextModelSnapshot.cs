@@ -39,15 +39,13 @@ namespace PS.Template.AccessData.Migrations
                         .HasColumnName("idLocalidad")
                         .HasColumnType("int");
 
-                    b.Property<string>("Latitud")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
+                    b.Property<double>("Latitud")
+                        .HasColumnType("float")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<string>("Longitud")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
+                    b.Property<double>("Longitud")
+                        .HasColumnType("float")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
@@ -64,8 +62,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 408,
                             Calle = "Av. del Libertador",
                             IdLocalidad = 1,
-                            Latitud = "-34.5901743",
-                            Longitud = "-58.3796545"
+                            Latitud = -34.590174300000001,
+                            Longitud = -58.379654500000001
                         },
                         new
                         {
@@ -73,8 +71,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 1201,
                             Calle = "Av. Belgrano",
                             IdLocalidad = 2,
-                            Latitud = "-34.613230",
-                            Longitud = "-58.383805"
+                            Latitud = -34.613230000000001,
+                            Longitud = -58.383805000000002
                         },
                         new
                         {
@@ -82,8 +80,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 1999,
                             Calle = "Av. Gral. José de San Martín",
                             IdLocalidad = 3,
-                            Latitud = "-34.796817",
-                            Longitud = "-58.279027"
+                            Latitud = -34.796816999999997,
+                            Longitud = -58.279026999999999
                         },
                         new
                         {
@@ -91,8 +89,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 204,
                             Calle = "3 de Febrero",
                             IdLocalidad = 4,
-                            Latitud = "-34.725701",
-                            Longitud = "-58.262265"
+                            Latitud = -34.725701000000001,
+                            Longitud = -58.262264999999999
                         });
                 });
 

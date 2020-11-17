@@ -9,8 +9,8 @@ using PS.Template.API.Entities;
 namespace PS.Template.AccessData.Migrations
 {
     [DbContext(typeof(SucursalDBContext))]
-    [Migration("20201102185609_NuevaMig")]
-    partial class NuevaMig
+    [Migration("20201113101805_CreateSucursalDB")]
+    partial class CreateSucursalDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,15 +41,13 @@ namespace PS.Template.AccessData.Migrations
                         .HasColumnName("idLocalidad")
                         .HasColumnType("int");
 
-                    b.Property<string>("Latitud")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
+                    b.Property<double>("Latitud")
+                        .HasColumnType("float")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<string>("Longitud")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
+                    b.Property<double>("Longitud")
+                        .HasColumnType("float")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
@@ -66,8 +64,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 408,
                             Calle = "Av. del Libertador",
                             IdLocalidad = 1,
-                            Latitud = "-34.5901743",
-                            Longitud = "-58.3796545"
+                            Latitud = -34.590174300000001,
+                            Longitud = -58.379654500000001
                         },
                         new
                         {
@@ -75,8 +73,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 1201,
                             Calle = "Av. Belgrano",
                             IdLocalidad = 2,
-                            Latitud = "-34.613230",
-                            Longitud = "-58.383805"
+                            Latitud = -34.613230000000001,
+                            Longitud = -58.383805000000002
                         },
                         new
                         {
@@ -84,8 +82,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 1999,
                             Calle = "Av. Gral. José de San Martín",
                             IdLocalidad = 3,
-                            Latitud = "-34.796817",
-                            Longitud = "-58.279027"
+                            Latitud = -34.796816999999997,
+                            Longitud = -58.279026999999999
                         },
                         new
                         {
@@ -93,8 +91,8 @@ namespace PS.Template.AccessData.Migrations
                             Altura = 204,
                             Calle = "3 de Febrero",
                             IdLocalidad = 4,
-                            Latitud = "-34.725701",
-                            Longitud = "-58.262265"
+                            Latitud = -34.725701000000001,
+                            Longitud = -58.262264999999999
                         });
                 });
 
@@ -360,28 +358,28 @@ namespace PS.Template.AccessData.Migrations
                             IdSucursal = 1,
                             IdDireccion = 1,
                             IdEstado = 1,
-                            Nombre = "EnvioYaRetiro"
+                            Nombre = "EnvioYa Retiro"
                         },
                         new
                         {
                             IdSucursal = 2,
                             IdDireccion = 2,
                             IdEstado = 1,
-                            Nombre = "EnvioMonserrat"
+                            Nombre = "EnvioYa Monserrat"
                         },
                         new
                         {
                             IdSucursal = 3,
                             IdDireccion = 3,
                             IdEstado = 1,
-                            Nombre = "EnvioYaFlorencioVarela"
+                            Nombre = "EnvioYa Florencio Varela"
                         },
                         new
                         {
                             IdSucursal = 4,
                             IdDireccion = 4,
                             IdEstado = 1,
-                            Nombre = "EnvioYaQuilmes"
+                            Nombre = "EnvioYa Quilmes"
                         });
                 });
 
