@@ -10,7 +10,7 @@ namespace PS.Template.Application
     {
         public static bool SoloNumerosLetras(string array)
         {           
-            return Regex.IsMatch(array, @"^[a-zA-Z0-9]+$");                       
+            return Regex.IsMatch(array, @"^[a-zA-Z0-9\s]+$");                       
         }
 
         public static bool SoloNumerosPositivos(int numero)
