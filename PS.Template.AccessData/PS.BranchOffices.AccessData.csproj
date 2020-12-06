@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PS.Template.Application\PS.Template.Application.csproj" />
-    <ProjectReference Include="..\PS.Template.Domain\PS.Template.Domain.csproj" />
+    <ProjectReference Include="..\PS.Template.Application\PS.BranchOffices.Application.csproj" />
+    <ProjectReference Include="..\PS.Template.Domain\PS.BranchOffices.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,7 +18,7 @@ namespace PS.Template.Application.Services
         }
         
         public List<ResponseGetLocalidad> GetLocalidad()
-        {
+        {           
             return _query.GetAllLocalidad();
         }
     }

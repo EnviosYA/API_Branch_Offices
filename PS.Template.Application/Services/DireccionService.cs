@@ -28,7 +28,7 @@ namespace PS.Template.Application.Services
                 IdLocalidad = direccionDTO.IdLocalidad
             };
             Add(entity);
-            Save();          
+            Save();
 
             return new GenericCreatedResponseDTO { Entity = "Direccion", Id = entity.IdDireccion.ToString() };
         }        
@@ -40,6 +40,10 @@ namespace PS.Template.Application.Services
 
         public GenericDeleteResponseDTO DeleteDireccion(int idDireccion)
         {
+            if (FindById(idDireccion) == null)
+            {
+                return null;
+            }
             Delete(idDireccion);
             Save();
             return new GenericDeleteResponseDTO { Entity = "Direccion", Id = idDireccion, Estado = "Eliminada" };
@@ -49,8 +53,6 @@ namespace PS.Template.Application.Services
         {
             if (!Validacion.SoloNumerosLetras(direccionDTO.Calle))
                 return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la calle ingresada es incorrecto." };
-            if (!Validacion.SoloNumerosPositivos(direccionDTO.Altura))
-                return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la altura ingresada es incorrecto." };
             if (!Validacion.SoloNumerosPositivos(direccionDTO.Altura))
                 return new ResponseBadRequest { CodigoDeError = 400, Mensaje = "El formato de la altura ingresada es incorrecto." };
             if (!_query.ExisteLocalidad(direccionDTO.IdLocalidad))
