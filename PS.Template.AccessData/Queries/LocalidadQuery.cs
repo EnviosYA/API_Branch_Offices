@@ -14,6 +14,7 @@ namespace PS.Template.AccessData.Queries
     {
         public LocalidadQuery(IDbConnection connection, Compiler sqlKatacompiler) : base(connection, sqlKatacompiler)
         {
+
         }
 
         public List<ResponseGetLocalidad> GetAllLocalidad()

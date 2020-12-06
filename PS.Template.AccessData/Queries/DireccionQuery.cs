@@ -30,7 +30,6 @@ namespace PS.Template.AccessData.Queries
                 .Where("IdDireccion", id)
                 .Get<ResponseGetDireccion>()
                 .FirstOrDefault();
-
             return direccion;
         }
 

@@ -13,7 +13,7 @@ namespace PS.Template.AccessData.Repositories
             _context = dbContext;
         }
 
-        public virtual void Add(E entity) 
+        public virtual void Add(E entity)
         {
             _context.Add(entity);
         }
